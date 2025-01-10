@@ -95,7 +95,7 @@ function updateIcon(theme) {
 
 
 // Курсор на картках
-document.querySelectorAll(".cards-product__img, .cards-benefits__item").forEach((card) => { 
+document.querySelectorAll(".cards-product__img, .cards-benefits__item, .cards-blog__img").forEach((card) => { 
    const circle = card.querySelector(".circle");
 
    if (!circle) return;
@@ -134,7 +134,28 @@ document.querySelectorAll(".cards-product__img, .cards-benefits__item").forEach(
    }
 });
 
-
+// Блок з лого
 const copy = document.querySelector(".logos-slide").cloneNode(true);
       document.querySelector(".logos").appendChild(copy);
 
+      // const prevBtn = document.querySelector('.prev-btn');
+      // const nextBtn = document.querySelector('.next-btn');
+      // const testimonials = document.querySelector('.cards-testimonials');
+      // const items = document.querySelectorAll('.cards-testimonials__item');
+      // let currentIndex = 0;
+  
+      // const totalItems = items.length;
+
+      // function updateCarousel() {
+      //     testimonials.style.transform = `translateX(-${currentIndex * 100}%)`;
+      // }
+  
+      // prevBtn.addEventListener('click', () => {
+      //     currentIndex = currentIndex === 0 ? totalItems - 1 : currentIndex - 1;
+      //     updateCarousel();
+      // });
+  
+      // nextBtn.addEventListener('click', () => {
+      //     currentIndex = currentIndex === totalItems - 1 ? 0 : currentIndex + 1;
+      //     updateCarousel();
+      // });

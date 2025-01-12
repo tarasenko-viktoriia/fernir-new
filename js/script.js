@@ -159,3 +159,23 @@ const copy = document.querySelector(".logos-slide").cloneNode(true);
       //     currentIndex = currentIndex === totalItems - 1 ? 0 : currentIndex + 1;
       //     updateCarousel();
       // });
+document.addEventListener("DOMContentLoaded", function() {
+   const headers = document.querySelectorAll(".accordion__header");
+
+   headers.forEach(header => {
+         header.addEventListener("click", function() {
+            const content = this.nextElementSibling;
+
+            if (content.classList.contains("active")) {
+               content.style.maxHeight = content.scrollHeight + "px"; 
+               setTimeout(() => {
+                     content.classList.remove("active");
+                     content.style.maxHeight = "0";
+               }, 10); 
+            } else {
+               content.classList.add("active");
+               content.style.maxHeight = content.scrollHeight + "px"; 
+            }
+         });
+   });
+});

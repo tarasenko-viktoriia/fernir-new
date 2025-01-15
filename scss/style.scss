@@ -30,7 +30,7 @@
     --nav-hover-bg: #fff;
     --nav-color-text: #1D1C20;
     --logos-gradient: linear-gradient(90deg, #0F0F0F 2.16%, rgba(15, 15, 15, 0.00) 12.18%, rgba(15, 15, 15, 0.00) 91.5%, #0F0F0F 100%);
-
+    --hover-color: #4D58FF;
 }
 
 [data-theme="light"] {
@@ -80,14 +80,18 @@ body {
     margin: 0 auto;
     padding-inline: .9375rem;
 }
+
+.header.scrolled {
+    background-color: var(--header-bg);
+}
 .header {
     position: sticky;
-    top: 0; 
-    z-index: 1000; 
+    top: 0;
+    z-index: 1000;
     padding-block: 2rem;
     max-height: 7.1875rem;
-    background-color: var(--header-bg);
     border-bottom: 1px rgba(217, 217, 217, 0.16) solid;
+    transition: background 0.3s ease-in-out, padding 0.3s ease-in-out;
 
     &__block {
         display: flex;
@@ -121,6 +125,7 @@ body {
     &__item {
         position: relative;
         display: inline-block;
+        transition: color 0.3s ease;
     }
 }
 .menu
@@ -180,8 +185,9 @@ body {
     background-color: var(--demo-button-bg);
     padding: .8125rem 1.5rem;
     color: #fff;
+    position: relative;
+    overflow: hidden;
 }
-
 .talk-button {
     border-radius: 60px;
     background-color: var(--talk-button-bg);
@@ -189,7 +195,8 @@ body {
     border: var(--button-border);
 }
 .hero{
-    
+    position: relative;
+    z-index: 3;
     &::before{
         content: "";
         position: absolute;
@@ -200,7 +207,7 @@ body {
 
         top: -28%;
         left: -17%;
-        z-index: 1001;
+        z-index: 2;
     }
     &__block {
         display: flex;
@@ -298,6 +305,7 @@ body {
     width: 100%; 
     max-width: 404px; 
     margin-block-end: 6.25rem;
+    z-index: 3;
 
     &--width {
         flex: 0 1 17rem;
@@ -845,6 +853,10 @@ body {
             letter-spacing: -0.02rem;
         }
     }
+
+    &__link {
+        transition: color 0.3s ease;
+    }
 }
 .accordion {
     display: flex;
@@ -895,5 +907,10 @@ body {
             opacity: 1;
             margin-top: .625rem; 
         }
+    }
+}
+@media (any-hover:hover) {
+    .menu__item:hover, .footer__link:hover {
+        color: var(--hover-color);
     }
 }

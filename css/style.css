@@ -122,6 +122,7 @@ textarea {
   --nav-hover-bg: #fff;
   --nav-color-text: #1D1C20;
   --logos-gradient: linear-gradient(90deg, #0F0F0F 2.16%, rgba(15, 15, 15, 0.00) 12.18%, rgba(15, 15, 15, 0.00) 91.5%, #0F0F0F 100%);
+  --hover-color: #4D58FF;
 }
 
 [data-theme=light] {
@@ -177,14 +178,19 @@ body {
   padding-inline: 0.9375rem;
 }
 
+.header.scrolled {
+  background-color: var(--header-bg);
+}
+
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
   padding-block: 2rem;
   max-height: 7.1875rem;
-  background-color: var(--header-bg);
   border-bottom: 1px rgba(217, 217, 217, 0.16) solid;
+  -webkit-transition: background 0.3s ease-in-out, padding 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 .header__block {
   display: -webkit-box;
@@ -228,6 +234,8 @@ body {
 .menu__item {
   position: relative;
   display: inline-block;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .menu .sub-menu {
@@ -297,6 +305,8 @@ body {
   background-color: var(--demo-button-bg);
   padding: 0.8125rem 1.5rem;
   color: #fff;
+  position: relative;
+  overflow: hidden;
 }
 
 .talk-button {
@@ -306,6 +316,10 @@ body {
   border: var(--button-border);
 }
 
+.hero {
+  position: relative;
+  z-index: 3;
+}
 .hero::before {
   content: "";
   position: absolute;
@@ -314,7 +328,7 @@ body {
   height: 65.8238rem;
   top: -28%;
   left: -17%;
-  z-index: 1001;
+  z-index: 2;
 }
 .hero__block {
   display: -webkit-box;
@@ -432,6 +446,7 @@ body {
   max-width: 404px;
   -webkit-margin-after: 6.25rem;
           margin-block-end: 6.25rem;
+  z-index: 3;
 }
 .block-buttons--width {
   -webkit-box-flex: 0;
@@ -1096,6 +1111,10 @@ body {
   line-height: 1.5; /* 24px */
   letter-spacing: -0.02rem;
 }
+.footer__link {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
 
 .accordion {
   display: -webkit-box;
@@ -1155,4 +1174,10 @@ body {
   max-height: 31.25rem;
   opacity: 1;
   margin-top: 0.625rem;
+}
+
+@media (any-hover: hover) {
+  .menu__item:hover, .footer__link:hover {
+    color: var(--hover-color);
+  }
 }

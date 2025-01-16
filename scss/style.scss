@@ -189,10 +189,39 @@ body {
     overflow: hidden;
 }
 .talk-button {
+    position: relative;
     border-radius: 60px;
     background-color: var(--talk-button-bg);
     padding: .8125rem 1.5rem;
     border: var(--button-border);
+    overflow: hidden;
+    transition: 0.5s;
+
+    span {
+        position: relative;
+        z-index: 1;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: var(--y);
+        left: var(--x);
+        transform: translate(-50%, -50%);
+        width: 12.5rem;
+        height: 12.5rem;
+        background: radial-gradient(var(--hover-color), transparent, transparent);
+        transition: 0.5s, top 0s, left 0s;
+        opacity: 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: .125rem;
+        background-color: var(--talk-button-bg);
+        border-radius: 3rem;
+    }
 }
 .hero{
     position: relative;
@@ -912,5 +941,13 @@ body {
 @media (any-hover:hover) {
     .menu__item:hover, .footer__link:hover {
         color: var(--hover-color);
+    }
+    .talk-button:hover {
+        color: var(--hover-color);
+        text-shadow: 0 0 .9375rem var(--hover-color), 0 0 2.5rem var(--hover-color);
+    }
+
+    .talk-button:hover::before {
+        opacity: 1;
     }
 }

@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
    });
 });
 
+// Хедер з прозорого в непрозорий
 window.addEventListener("scroll", function () {
    let header = document.querySelector(".header");
 
@@ -188,4 +189,18 @@ window.addEventListener("scroll", function () {
    } else {
       header.classList.remove("scrolled");
    }
+});
+
+// Button talk-button
+let btns = document.querySelectorAll(".talk-button");
+
+btns.forEach((btn) => {
+   btn.addEventListener("mousemove", function (e) {
+      let rect = btn.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+
+      btn.style.setProperty("--x", x + "px");
+      btn.style.setProperty("--y", y + "px");
+   });
 });

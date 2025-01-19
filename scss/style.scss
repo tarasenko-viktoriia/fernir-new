@@ -31,6 +31,10 @@
     --nav-color-text: #1D1C20;
     --logos-gradient: linear-gradient(90deg, #0F0F0F 2.16%, rgba(15, 15, 15, 0.00) 12.18%, rgba(15, 15, 15, 0.00) 91.5%, #0F0F0F 100%);
     --hover-color: #4D58FF;
+    --footer-nav: #FBFBFB;
+    --footer-bg: transparent;
+    --footer-text: #9B9CA1;
+    --footer-border-color: #161616;
 }
 
 [data-theme="light"] {
@@ -53,6 +57,10 @@
     --nav-hover-bg: #1D1C20;
     --nav-color-text: #fff;
     --logos-gradient: linear-gradient(90deg, #F6F6F6 5.67%, rgba(246, 246, 246, 0.00) 10.47%, rgba(246, 246, 246, 0.00) 85.36%, #F6F6F6 94.57%);
+    --footer-nav: #4F4F4F;
+    --footer-bg: #E0E0E0;
+    --footer-text: #4F4F4F;
+    --footer-border-color: #BDBDBD;
 }
 
 
@@ -210,7 +218,7 @@ body {
         transform: translate(-50%, -50%);
         width: 12.5rem;
         height: 12.5rem;
-        background: radial-gradient(var(--hover-color), transparent, transparent);
+        background: radial-gradient(#fff, transparent, transparent);
         transition: 0.5s, top 0s, left 0s;
         opacity: 0;
     }
@@ -856,18 +864,22 @@ body {
     }
 }
 .footer {
+    background-color: var(--footer-bg);
     border-top: 1px solid rgba(217, 217, 217, 0.15);
     padding-block: 5rem 2.5rem;
 
     &__block {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        align-items: start;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-block-end: 3.75rem;
+        border-bottom: 1px solid var(--footer-border-color);
     }
     &__item {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        flex-basis: 11.6875rem;
 
         h4 {
             font-size: 1.25rem;
@@ -877,7 +889,7 @@ body {
         }
 
         a {
-            color: #FBFBFB;
+            color:  var(--footer-nav);
             line-height: 1.5; /* 24px */
             letter-spacing: -0.02rem;
         }
@@ -886,6 +898,9 @@ body {
     &__link {
         transition: color 0.3s ease;
     }
+}
+.logo--footer {
+    flex-basis: 17.9375rem;
 }
 .accordion {
     display: flex;
@@ -938,16 +953,49 @@ body {
         }
     }
 }
+.footer__icons {
+    padding-block-start: 2rem;
+    max-width: 17.875rem;
+    margin: 0 auto;
+}
+.icons-footer {
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: .3125rem;
+        padding-block-end: 1rem;
+    }
+    &__item {
+        inline-size: 1.5rem;
+        block-size: 1.5rem;
+        object-fit: contain;
+        a svg path {
+            transition: fill 0.3s ease; /* Додаємо плавність зміни кольору */
+        }
+    }
+    &__text {
+        color: var(--footer-text);
+        text-align: center;
+        line-height: 1.5; /* 24px */
+        letter-spacing: -0.02rem;
+    }
+}
 @media (any-hover:hover) {
-    .menu__item:hover, .footer__link:hover {
+    .menu__item:hover .menu__link, .footer__link:hover {
         color: var(--hover-color);
     }
     .talk-button:hover {
-        color: var(--hover-color);
-        text-shadow: 0 0 .9375rem var(--hover-color), 0 0 2.5rem var(--hover-color);
+        color: #fff;
+        text-shadow: 0 0 .9375rem #fff, 0 0 2.5rem #fff;
     }
 
     .talk-button:hover::before {
         opacity: 1;
+    }
+
+    .icons-footer__item a:hover svg path {
+        fill: var(--hover-color);
     }
 }

@@ -12,7 +12,7 @@ const themeToggle = document.getElementById('theme-toggle');
 
 const heroImage = document.getElementById('hero-image');
 
-const logoImage = document.getElementById('logo-img');
+const logoImage = document.querySelectorAll('.logo-img');
 
 const product01 = document.getElementById('product-01');
 const product02 = document.getElementById('product-02');
@@ -49,8 +49,10 @@ function updateIcon(theme) {
    const heroImgSrc = theme === 'light' ? 'img/hero-img-white.png' : 'img/hero-img.png';
    heroImage.setAttribute('src', heroImgSrc);
 
-   const logoImgSrc = theme === 'light' ? 'img/icons/logo-light.svg' : 'img/icons/logo.svg';
-   logoImage.setAttribute('src', logoImgSrc);
+   logoImage.forEach(logo => {
+      const logoImgSrc = theme === 'light' ? 'img/icons/logo-light.svg' : 'img/icons/logo.svg';
+      logo.setAttribute('src', logoImgSrc);
+   });
 
    const product01ImgSrc = theme === 'light' ? 'img/product-01-light.png' : 'img/product-01.png';
    product01.setAttribute('src', product01ImgSrc);
@@ -87,9 +89,9 @@ function updateIcon(theme) {
 
 
    // Змінюємо fill для всіх SVG
-   const svgs = document.querySelectorAll('logos-slide__img');
+   const svgs = document.querySelectorAll('.icons-footer__link svg path');
    svgs.forEach(svg => {
-      svg.setAttribute('fill', theme === 'light' ? '#BDBDBD' : '#3C3C3C'); // або інший колір для темної теми
+      svg.setAttribute('fill', theme === 'light' ? '#4F4F4F' : '#9B9CA1');
    });
 }
 

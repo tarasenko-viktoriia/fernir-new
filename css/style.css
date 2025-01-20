@@ -117,6 +117,7 @@ textarea {
   --cards-bg:#161616;
   --cards-border: .0625rem solid #292929;
   --cards-title: #F6F6F7;
+  --card-text: #9B9CA1;
   --nav-bg: rgba(255, 255, 255, 0.05);
   --nav-border: 1px solid #FFF;
   --nav-hover-bg: #fff;
@@ -127,6 +128,8 @@ textarea {
   --footer-bg: transparent;
   --footer-text: #9B9CA1;
   --footer-border-color: #161616;
+  --accordion-title: #D7D7D7;
+  --arrow-card: url(../img/icons/arrow-right-white.svg) 0 0 / 100% no-repeat;
 }
 
 [data-theme=light] {
@@ -144,6 +147,7 @@ textarea {
   --cards-bg:#fff;
   --cards-border: .0625rem solid #BDBDBD;
   --cards-title: #1D1C20;
+  --card-text:#828282;
   --nav-bg: rgba(29, 28, 32, 0.05);
   --nav-border: 1px solid #1D1C20;
   --nav-hover-bg: #1D1C20;
@@ -153,6 +157,8 @@ textarea {
   --footer-bg: #E0E0E0;
   --footer-text: #4F4F4F;
   --footer-border-color: #BDBDBD;
+  --accordion-title: #1D1C20;
+  --arrow-card: url(../img/icons/arrow-right-dark.svg) 0 0 / 100% no-repeat;
 }
 
 body {
@@ -229,7 +235,6 @@ body {
   line-height: 0.8; /* 19.2px */
 }
 
-/* Випадаюче меню */
 .menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -246,7 +251,7 @@ body {
   transition: color 0.3s ease;
 }
 
-.menu .sub-menu {
+.sub-menu {
   position: absolute;
   inset-inline-start: 0;
   inset-block-start: 100%;
@@ -258,19 +263,9 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
-.menu .sub-menu__item:not(:last-child) {
+.sub-menu__item:not(:last-child) {
   -webkit-margin-after: 0.625rem;
           margin-block-end: 0.625rem;
-}
-
-.sub-menu__link:hover {
-  text-decoration: underline;
-}
-
-.menu__item:hover .sub-menu {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .menu__link--icon {
@@ -285,13 +280,19 @@ body {
 
 .menu__link--icon::after {
   content: "";
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  inline-size: 1.125rem;
-  block-size: 1.125rem;
-  background: url("../img/icons/arrow-down.svg") 0 0/100% no-repeat;
-  -webkit-filter: var(--icon-filter);
-          filter: var(--icon-filter);
+  color: var(--accordion-title);
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
 }
 
 .header__buttons {
@@ -319,7 +320,7 @@ body {
 
 .talk-button {
   position: relative;
-  border-radius: 60px;
+  border-radius: 3.75rem;
   background-color: var(--talk-button-bg);
   padding: 0.8125rem 1.5rem;
   border: var(--button-border);
@@ -632,7 +633,7 @@ body {
           margin-block-end: 0.75rem;
 }
 .cards-benefits__text p {
-  color: var(--secondary-text-color);
+  color: var(--card-text);
   line-height: 1.5; /* 24px */
   letter-spacing: -0.02rem;
 }
@@ -729,7 +730,7 @@ body {
           margin-block-end: 0.75rem;
 }
 .cards-product__text p {
-  color: var(--secondary-text-color);
+  color: var(--card-text);
   line-height: 1.5; /* 24px */
   letter-spacing: -0.02rem;
 }
@@ -1028,8 +1029,8 @@ body {
 }
 .blog__button {
   border-radius: 3.75rem;
-  border: 0.0625rem solid #404040;
-  background: #404040;
+  border: var(--button-border);
+  background: var(--talk-button-bg);
   padding: 0.8125rem 1.5rem;
   font-weight: 600;
   line-height: 1.5; /* 24px */
@@ -1043,8 +1044,8 @@ body {
 }
 .cards-blog__item {
   border-radius: 0.625rem;
-  border: 0.0625rem solid #292929;
-  background: #161616;
+  border: var(--cards-border);
+  background: var(--cards-bg);
   padding: 1.5625rem;
 }
 .cards-blog__img {
@@ -1075,7 +1076,7 @@ body {
           margin-block-end: 0.9375rem;
 }
 .cards-blog__text p {
-  color: #9B9CA1;
+  color: var(--card-text);
   font-size: 0.875rem;
   line-height: 1.5; /* 21px */
   letter-spacing: -0.0175rem;
@@ -1091,7 +1092,7 @@ body {
   gap: 0.625rem;
 }
 .cards-blog__block p {
-  color: #9B9CA1;
+  color: var(--card-text);
   font-size: 0.875rem;
   line-height: 1.5; /* 21px */
   letter-spacing: -0.0175rem;
@@ -1114,7 +1115,7 @@ body {
       flex-shrink: 0;
   inline-size: 1.5rem;
   block-size: 1.5rem;
-  background: url("../img/icons/arrow-right-white.svg") 0 0/100% no-repeat;
+  background: var(--arrow-card);
 }
 
 .footer {
@@ -1183,7 +1184,7 @@ body {
 }
 .accordion__item {
   border-radius: 1rem;
-  border: 0.0313rem solid #5C5C5C;
+  border: var(--cards-border);
   padding: 1.5rem;
 }
 .accordion__header {
@@ -1199,7 +1200,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #D7D7D7;
+  color: var(--accordion-title);
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.5; /* 30px */
@@ -1207,14 +1208,26 @@ body {
 }
 .accordion__header::after {
   content: "";
-  inline-size: 1.25rem;
-  block-size: 1.25rem;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  background: url("../img/icons/chevron-down.png") 0 0/100% no-repeat;
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+}
+.accordion__header.active::after {
+  -webkit-transform: rotate(-135deg);
+      -ms-transform: rotate(-135deg);
+          transform: rotate(-135deg);
 }
 .accordion__content {
-  color: var(--secondary-text-color);
+  color: var(--card-text);
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -1268,7 +1281,7 @@ body {
 }
 
 @media (any-hover: hover) {
-  .menu__item:hover .menu__link, .footer__link:hover {
+  .menu__item:hover .menu__link, .footer__link:hover, .menu__link--icon:hover::after {
     color: var(--hover-color);
   }
   .talk-button:hover {
@@ -1280,5 +1293,13 @@ body {
   }
   .icons-footer__item a:hover svg path {
     fill: var(--hover-color);
+  }
+  .sub-menu__link:hover {
+    text-decoration: underline;
+  }
+  .menu__item:hover .sub-menu {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
   }
 }

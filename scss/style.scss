@@ -25,6 +25,7 @@
     --cards-bg:#161616;
     --cards-border: .0625rem solid #292929;
     --cards-title: #F6F6F7;
+    --card-text: #9B9CA1;
     --nav-bg: rgba(255, 255, 255, 0.05);
     --nav-border: 1px solid #FFF;
     --nav-hover-bg: #fff;
@@ -35,6 +36,8 @@
     --footer-bg: transparent;
     --footer-text: #9B9CA1;
     --footer-border-color: #161616;
+    --accordion-title: #D7D7D7;
+    --arrow-card: url(../img/icons/arrow-right-white.svg) 0 0 / 100% no-repeat;
 }
 
 [data-theme="light"] {
@@ -52,6 +55,7 @@
     --cards-bg:#fff;
     --cards-border: .0625rem solid #BDBDBD;
     --cards-title: #1D1C20;
+    --card-text:#828282;
     --nav-bg: rgba(29, 28, 32, 0.05);
     --nav-border: 1px solid #1D1C20;
     --nav-hover-bg: #1D1C20;
@@ -61,6 +65,8 @@
     --footer-bg: #E0E0E0;
     --footer-text: #4F4F4F;
     --footer-border-color: #BDBDBD;
+    --accordion-title: #1D1C20;
+    --arrow-card: url(../img/icons/arrow-right-dark.svg) 0 0 / 100% no-repeat;
 }
 
 
@@ -122,7 +128,6 @@ body {
     }
 }
 
-/* Випадаюче меню */
 .menu {
     display: flex;
     gap: 2.5rem;
@@ -136,7 +141,6 @@ body {
         transition: color 0.3s ease;
     }
 }
-.menu
 
 .sub-menu {
     position: absolute;
@@ -153,16 +157,6 @@ body {
         margin-block-end: .625rem;
     }
 }
-
-.sub-menu__link:hover {
-    text-decoration: underline;
-}
-
-.menu__item:hover .sub-menu {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-}
 .menu__link--icon {
     display: inline-flex;
     align-items: center;
@@ -170,11 +164,14 @@ body {
 }
 .menu__link--icon::after {
     content: "";
-    flex-shrink: 0;
-    inline-size: 1.125rem;
-    block-size: 1.125rem;
-    background: url('../img/icons/arrow-down.svg') 0 0 / 100% no-repeat;
-    filter: var(--icon-filter);
+        color: var(--accordion-title);
+        width: 9px;
+        height: 9px;
+        display: inline-block;
+        border: solid currentColor;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        transition: transform 0.4s ease-in-out;
 }
 
 
@@ -198,7 +195,7 @@ body {
 }
 .talk-button {
     position: relative;
-    border-radius: 60px;
+    border-radius: 3.75rem;
     background-color: var(--talk-button-bg);
     padding: .8125rem 1.5rem;
     border: var(--button-border);
@@ -464,7 +461,7 @@ body {
         }
 
         p{
-            color: var(--secondary-text-color);
+            color: var(--card-text);
             line-height: 1.5; /* 24px */
             letter-spacing: -0.02rem;
         }
@@ -546,7 +543,7 @@ body {
         }
 
         p {
-            color: var(--secondary-text-color);
+            color: var(--card-text);
             line-height: 1.5; /* 24px */
             letter-spacing: -0.02rem;
         }
@@ -778,8 +775,8 @@ body {
     }
     &__button {
         border-radius: 3.75rem;
-        border: .0625rem solid #404040;
-        background: #404040;
+        border: var(--button-border);
+        background: var(--talk-button-bg);
         padding: .8125rem 1.5rem;
     
         font-weight: 600;
@@ -788,7 +785,7 @@ body {
     }
 }
 @mixin common-paragraph-styles {
-    color: #9B9CA1;
+    color: var(--card-text);
     font-size: .875rem;
     line-height: 1.5; /* 21px */
     letter-spacing: -0.0175rem;
@@ -800,8 +797,8 @@ body {
 
     &__item {
         border-radius: .625rem;
-        border: .0625rem solid #292929;
-        background: #161616;
+        border: var(--cards-border);
+        background: var(--cards-bg);
         padding: 1.5625rem;
     }
 
@@ -859,7 +856,7 @@ body {
             flex-shrink: 0;
             inline-size: 1.5rem;
             block-size: 1.5rem;
-            background: url("../img/icons/arrow-right-white.svg") 0 0 / 100% no-repeat;
+            background: var(--arrow-card);
         }
     }
 }
@@ -911,7 +908,7 @@ body {
 
     &__item {
         border-radius: 1rem;
-        border: .0313rem solid #5C5C5C;
+        border:  var(--cards-border);
         padding: 1.5rem;
     }
     &__header {
@@ -922,7 +919,7 @@ body {
         justify-content: space-between;
         align-items: center;
     
-        color:  #D7D7D7;
+        color:  var(--accordion-title);
         font-size: 1.25rem;
         font-weight: 600;
         line-height: 1.5; /* 30px */
@@ -930,15 +927,22 @@ body {
 
         &::after {
             content: "";
-            inline-size: 1.25rem;
-            block-size: 1.25rem;
-            flex-shrink: 0;
-            background: url("../img/icons/chevron-down.png") 0 0 / 100% no-repeat;
+            width: 9px;
+            height: 9px;
+            display: inline-block;
+            border: solid currentColor;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        &.active::after {
+            transform: rotate(-135deg); 
         }
     }
 
     &__content {
-        color: var(--secondary-text-color);
+        color: var(--card-text);
         max-height: 0;
         opacity: 0;
         overflow: hidden;
@@ -983,7 +987,7 @@ body {
     }
 }
 @media (any-hover:hover) {
-    .menu__item:hover .menu__link, .footer__link:hover {
+    .menu__item:hover .menu__link, .footer__link:hover, .menu__link--icon:hover::after {
         color: var(--hover-color);
     }
     .talk-button:hover {
@@ -997,5 +1001,14 @@ body {
 
     .icons-footer__item a:hover svg path {
         fill: var(--hover-color);
+    }
+    .sub-menu__link:hover {
+        text-decoration: underline;
+    }
+    
+    .menu__item:hover .sub-menu {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
     }
 }

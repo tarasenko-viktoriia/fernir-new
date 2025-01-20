@@ -18,6 +18,10 @@ const product01 = document.getElementById('product-01');
 const product02 = document.getElementById('product-02');
 const product03 = document.getElementById('product-03');
 
+const blog01 = document.getElementById('blog-img-01');
+const blog02 = document.getElementById('blog-img-02');
+const blog03 = document.getElementById('blog-img-03');
+
 const logo01 = document.getElementById('efficiency-leaders-logo');
 const logo02 = document.getElementById('look-who-charging-logo');
 const logo03 = document.getElementById('top-to-toe-icon');
@@ -62,6 +66,15 @@ function updateIcon(theme) {
 
    const product03ImgSrc = theme === 'light' ? 'img/product-03-light.png' : 'img/product-03.png';
    product03.setAttribute('src', product03ImgSrc);
+
+   const blog01ImgSrc = theme === 'light' ? 'img/blog-01-light.png' : 'img/blog-01.png';
+   blog01.setAttribute('src', blog01ImgSrc);
+
+   const blog02ImgSrc = theme === 'light' ? 'img/blog-02-light.png' : 'img/blog-02.png';
+   blog02.setAttribute('src', blog02ImgSrc);
+
+   const blog03ImgSrc = theme === 'light' ? 'img/blog-03-light.png' : 'img/blog-03.png';
+   blog03.setAttribute('src', blog03ImgSrc);
 
    const logo01ImgSrc = theme === 'light' ? 'img/icons/efficiency-leaders-light.svg' : 'img/icons/efficiency-leaders.svg';
    logo01.setAttribute('src', logo01ImgSrc);
@@ -161,25 +174,32 @@ const copy = document.querySelector(".logos-slide").cloneNode(true);
       //     currentIndex = currentIndex === totalItems - 1 ? 0 : currentIndex + 1;
       //     updateCarousel();
       // });
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
    const headers = document.querySelectorAll(".accordion__header");
-
+   
    headers.forEach(header => {
-         header.addEventListener("click", function() {
-            const content = this.nextElementSibling;
-
-            if (content.classList.contains("active")) {
-               content.style.maxHeight = content.scrollHeight + "px"; 
-               setTimeout(() => {
-                     content.classList.remove("active");
-                     content.style.maxHeight = "0";
-               }, 10); 
-            } else {
-               content.classList.add("active");
-               content.style.maxHeight = content.scrollHeight + "px"; 
+      header.addEventListener("click", function () {
+         const content = this.nextElementSibling;
+         
+         headers.forEach(h => {
+            if (h !== header && h.nextElementSibling.classList.contains("active")) {
+               h.nextElementSibling.classList.remove("active");
+               h.nextElementSibling.style.maxHeight = "0";
+               h.classList.remove("active");
             }
          });
-   });
+
+            if (content.classList.contains("active")) {
+               content.classList.remove("active");
+               content.style.maxHeight = "0";
+               this.classList.remove("active");
+            } else {
+               content.classList.add("active");
+               content.style.maxHeight = content.scrollHeight + "px"; // Динамічна висота
+               this.classList.add("active");
+            }
+         });
+      });
 });
 
 // Хедер з прозорого в непрозорий

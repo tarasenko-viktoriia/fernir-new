@@ -151,29 +151,43 @@ document.querySelectorAll(".cards-product__img, .cards-benefits__item, .cards-bl
 
 // Блок з лого
 const copy = document.querySelector(".logos-slide").cloneNode(true);
-      document.querySelector(".logos").appendChild(copy);
+   document.querySelector(".logos").appendChild(copy);
 
-      // const prevBtn = document.querySelector('.prev-btn');
-      // const nextBtn = document.querySelector('.next-btn');
-      // const testimonials = document.querySelector('.cards-testimonials');
-      // const items = document.querySelectorAll('.cards-testimonials__item');
-      // let currentIndex = 0;
-  
-      // const totalItems = items.length;
+//Слайдер
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const testimonials = document.querySelector('.cards-testimonials');
 
-      // function updateCarousel() {
-      //     testimonials.style.transform = `translateX(-${currentIndex * 100}%)`;
-      // }
-  
-      // prevBtn.addEventListener('click', () => {
-      //     currentIndex = currentIndex === 0 ? totalItems - 1 : currentIndex - 1;
-      //     updateCarousel();
-      // });
-  
-      // nextBtn.addEventListener('click', () => {
-      //     currentIndex = currentIndex === totalItems - 1 ? 0 : currentIndex + 1;
-      //     updateCarousel();
-      // });
+const ITEM_WIDTH = 150; 
+const TOTAL_WIDTH = testimonials.scrollWidth; 
+const VISIBLE_WIDTH = testimonials.clientWidth; 
+const MAX_OFFSET = TOTAL_WIDTH - VISIBLE_WIDTH; 
+
+let currentOffset = 0;
+
+function updateCarousel() {
+   testimonials.style.transform = `translateX(-${currentOffset}px)`;
+}
+
+nextBtn.addEventListener('click', () => {
+   if (currentOffset + ITEM_WIDTH > MAX_OFFSET) {
+      currentOffset = 0;
+   } else {
+      currentOffset += ITEM_WIDTH; 
+   }
+   updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+   if (currentOffset - ITEM_WIDTH < 0) {
+      currentOffset = MAX_OFFSET;
+   } else {
+      currentOffset -= ITEM_WIDTH; 
+   }
+   updateCarousel();
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
    const headers = document.querySelectorAll(".accordion__header");
    

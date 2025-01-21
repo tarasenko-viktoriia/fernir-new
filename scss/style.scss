@@ -1,9 +1,13 @@
+@use "sass:math";
+
 @import url("https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:regular,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=DM+Sans:regular,500,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Inter:regular,500,600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:regular&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
+
+@import "_mixins.scss";
 
 @import "_fonts.scss";
 
@@ -38,6 +42,10 @@
     --footer-border-color: #161616;
     --accordion-title: #D7D7D7;
     --arrow-card: url(../img/icons/arrow-right-white.svg) 0 0 / 100% no-repeat;
+    --btn-bg: #222629;
+    --btn-stroke: #fff;
+    --btn-hover-stroke: #000;
+    --testim-comma: url("../img/inverted-comma.png") 0 0 / 100% no-repeat;
 }
 
 [data-theme="light"] {
@@ -67,6 +75,10 @@
     --footer-border-color: #BDBDBD;
     --accordion-title: #1D1C20;
     --arrow-card: url(../img/icons/arrow-right-dark.svg) 0 0 / 100% no-repeat;
+    --btn-bg: #FFF;
+    --btn-stroke: #000;
+    --btn-hover-stroke: #fff;
+    --testim-comma: url("../img/inverted-comma-light.png") 0 0 / 100% no-repeat;
 }
 
 
@@ -288,11 +300,11 @@ body {
 
         h1{
             text-align: center;
-            font-size: 4.5rem;
             font-weight: 600;
             line-height: 1.2; /* 86.4px */
             letter-spacing: -0.135rem;
             max-width: 62.25rem;
+            @include adaptiveValue("font-size", 72, 38);
         }
 
         p{
@@ -680,9 +692,19 @@ body {
 }
 
 
-.testimonials__title {
-    text-align: center;
-    margin-block-end: 6.25rem;
+.testimonials {
+    &__cards {
+        margin-block-end: 3.75rem;
+    }
+    &__title {
+        text-align: center;
+        margin-block-end: 6.25rem;
+    }
+    &__buttons {
+        display: flex;
+        gap: .875rem;
+        justify-content: center;
+    }
 }
 .cards-testimonials {
     display: flex;
@@ -696,11 +718,12 @@ body {
         justify-content: space-between;
         row-gap: max(1.25rem, min(10vw, 4rem));
         border-radius: 1.25rem;
-        background: #161616;
+        background: var(--cards-bg);
         flex: 0 0 37.5rem;
         padding: 2.5625rem 2.1875rem;
 
         blockquote{
+            color: var(--cards-title);
             font-size: 1.5rem;
             font-weight: 500;
             line-height: 1.5; /* 36px */
@@ -709,6 +732,7 @@ body {
         }
     }
     &__author {
+        color: var(--card-text);
         display: flex;
         flex-direction: column;
         gap: .6875rem;
@@ -735,7 +759,7 @@ body {
             block-size: 3rem;
             position: absolute;
             right: 0;
-            background: url("../img/inverted-comma.png") 0 0 / 100% no-repeat;
+            background: var(--testim-comma);
         }
     }
 
@@ -752,19 +776,17 @@ body {
 }
 
 
-/* .prev-btn, .next-btn {
-    top: 50%;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px;
+.prev-btn, .next-btn {
+    border-radius: 100px;
+    background-color: var(--btn-bg);
+    padding: 1.125rem;
     cursor: pointer;
-    border: none;
+    transition: background-color 0.3s ease;
+    stroke: var(--btn-stroke)
 }
-
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; } */
-
+.prev-btn svg path,  .next-btn svg path {
+    transition: stroke 0.3s ease;
+}
 .blog{
     &__title {
         display: flex;
@@ -1010,5 +1032,12 @@ body {
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
+    }
+    .prev-btn:hover svg path, .next-btn:hover svg path {
+        stroke: var(--btn-hover-stroke); 
+    }
+    .prev-btn:hover, .next-btn:hover {
+        background-color: var(--btn-stroke);
+        border: none;
     }
 }

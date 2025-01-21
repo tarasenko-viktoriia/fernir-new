@@ -130,6 +130,10 @@ textarea {
   --footer-border-color: #161616;
   --accordion-title: #D7D7D7;
   --arrow-card: url(../img/icons/arrow-right-white.svg) 0 0 / 100% no-repeat;
+  --btn-bg: #222629;
+  --btn-stroke: #fff;
+  --btn-hover-stroke: #000;
+  --testim-comma: url("../img/inverted-comma.png") 0 0 / 100% no-repeat;
 }
 
 [data-theme=light] {
@@ -159,6 +163,10 @@ textarea {
   --footer-border-color: #BDBDBD;
   --accordion-title: #1D1C20;
   --arrow-card: url(../img/icons/arrow-right-dark.svg) 0 0 / 100% no-repeat;
+  --btn-bg: #FFF;
+  --btn-stroke: #000;
+  --btn-hover-stroke: #fff;
+  --testim-comma: url("../img/inverted-comma-light.png") 0 0 / 100% no-repeat;
 }
 
 body {
@@ -431,11 +439,25 @@ body {
 }
 .hero__title h1 {
   text-align: center;
-  font-size: 4.5rem;
   font-weight: 600;
   line-height: 1.2; /* 86.4px */
   letter-spacing: -0.135rem;
   max-width: 62.25rem;
+}
+@media (min-width: 78.375em) {
+  .hero__title h1 {
+    font-size: 4.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .hero__title h1 {
+    font-size: clamp( 2.375rem , 1.6469486081rem  +  3.6402569593vw , 4.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .hero__title h1 {
+    font-size: 2.375rem;
+  }
 }
 .hero__title p {
   color: var(--secondary-text-color);
@@ -910,10 +932,23 @@ body {
   margin: 0 30px;
 }
 
+.testimonials__cards {
+  -webkit-margin-after: 3.75rem;
+          margin-block-end: 3.75rem;
+}
 .testimonials__title {
   text-align: center;
   -webkit-margin-after: 6.25rem;
           margin-block-end: 6.25rem;
+}
+.testimonials__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.875rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .cards-testimonials {
@@ -940,13 +975,14 @@ body {
           justify-content: space-between;
   row-gap: max(1.25rem, min(10vw, 4rem));
   border-radius: 1.25rem;
-  background: #161616;
+  background: var(--cards-bg);
   -webkit-box-flex: 0;
       -ms-flex: 0 0 37.5rem;
           flex: 0 0 37.5rem;
   padding: 2.5625rem 2.1875rem;
 }
 .cards-testimonials__item blockquote {
+  color: var(--cards-title);
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5; /* 36px */
@@ -954,6 +990,7 @@ body {
   max-width: 28.8125rem;
 }
 .cards-testimonials__author {
+  color: var(--card-text);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -988,7 +1025,7 @@ body {
   block-size: 3rem;
   position: absolute;
   right: 0;
-  background: url("../img/inverted-comma.png") 0 0/100% no-repeat;
+  background: var(--testim-comma);
 }
 .cards-testimonials__img {
   aspect-ratio: 54.5/60;
@@ -1001,18 +1038,21 @@ body {
      object-fit: cover;
 }
 
-/* .prev-btn, .next-btn {
-    top: 50%;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
+.prev-btn, .next-btn {
+  border-radius: 100px;
+  background-color: var(--btn-bg);
+  padding: 1.125rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  stroke: var(--btn-stroke);
 }
 
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; } */
+.prev-btn svg path, .next-btn svg path {
+  -webkit-transition: stroke 0.3s ease;
+  transition: stroke 0.3s ease;
+}
+
 .blog__title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1301,5 +1341,12 @@ body {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
+  }
+  .prev-btn:hover svg path, .next-btn:hover svg path {
+    stroke: var(--btn-hover-stroke);
+  }
+  .prev-btn:hover, .next-btn:hover {
+    background-color: var(--btn-stroke);
+    border: none;
   }
 }

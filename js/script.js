@@ -7,6 +7,35 @@ document.addEventListener("click", function (e) {
    }
 })
 
+document.addEventListener("DOMContentLoaded", () => {
+   const demoButton = document.querySelector(".demo-button");
+   const talkButton = document.querySelector(".talk-button");
+   const menu = document.querySelector(".menu");
+   const buttonsContainer = document.querySelector(".header__buttons");
+
+   const moveButtonsToMenu = () => {
+      if (window.innerWidth <= 700) {
+         if (!menu.contains(demoButton)) {
+            menu.appendChild(demoButton);
+         }
+         if (!menu.contains(talkButton)) {
+            menu.appendChild(talkButton);
+         }
+      } else {
+         if (!buttonsContainer.contains(demoButton)) {
+            buttonsContainer.appendChild(demoButton);
+         }
+         if (!buttonsContainer.contains(talkButton)) {
+            buttonsContainer.appendChild(talkButton);
+         }
+      }
+   };
+
+   moveButtonsToMenu();
+
+   window.addEventListener("resize", moveButtonsToMenu);
+});
+
 // Зміна теми
 const themeToggle = document.getElementById('theme-toggle');
 

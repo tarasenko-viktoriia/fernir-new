@@ -269,6 +269,14 @@ body {
         align-items: center;
         @include adaptiveValue("padding-block-start", 120, 34);
         @include adaptiveValue("padding-block-end", 200, 100);
+
+
+        > .block-buttons{
+            @media (max-width: 400px) {
+                flex-direction: column;
+                gap: 1rem
+            }
+        }
     }
     &__button {
         display: inline-flex;
@@ -378,11 +386,11 @@ body {
         flex: 0 1 17rem;
         margin-bottom: 0;
         flex-wrap: wrap;
-    }
 
-    @media (max-width: 400px) {
-        flex-direction: column;
-        gap: 1rem
+
+        > .demo-button, .talk-button {
+            flex: 1 1 190px; 
+        }
     }
 }
 
@@ -399,10 +407,10 @@ body {
 }
 
 .benefits, .product, .buttons-section, .partners, .testimonials, .blog, .answers {
-    margin-block-end: 12.5rem;
+    @include adaptiveValue("margin-block-end", 200, 100);
 }
 .benefits__title {
-    margin-block-end: 3.75rem;
+    @include adaptiveValue("margin-block-end", 60, 40);
 }
 .category {
     display: inline-flex;
@@ -414,10 +422,11 @@ body {
     padding: .5rem .75rem;
     color: #4D58FF;
     font-family: "DM Sans", sans-serif;
-    font-size: .875rem;
+    @include adaptiveValue("font-size", 14, 12);
     font-weight: 500;
     line-height: 1.2; /* 120% */
     margin-block-end: .75rem;
+    @include adaptiveValue("margin-block-end", 12, 8);
 
     &::before {
         content: "";
@@ -440,18 +449,27 @@ body {
     display: flex;
     column-gap: max(1.25rem, min(10vw, 8rem));
 
+    @media (max-width: 745px) {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
     h2 {
         flex: 1 1 49.019608%; /* 600/1224 */
-        font-size: 2.375rem;
         font-weight: 600;
         line-height: 1.2; /* 45.6px */
         letter-spacing: -0.0712rem;
+        @include adaptiveValue("font-size", 38, 32);
+
+        @media (max-width: 745px) {
+            letter-spacing: -0.06rem;
+        }
     }
 
     p {
         flex: 1 1 40.522876%; /* 496/1224 */
         color: var(--secondary-text-color);
-        font-size: 1.25rem;
+        @include adaptiveValue("font-size", 20, 16);
         line-height: 1.5; /* 30px */
         letter-spacing: -0.025rem;
     }
@@ -473,6 +491,15 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 
+    @media (max-width: 745px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: .9375rem;
+    }
+    @media (max-width: 533px) {
+        grid-template-columns: repeat(1, 1fr);
+        gap: .75rem;
+    }
+
     &__item {
         border-radius: .75rem;
         border: var(--cards-border);
@@ -489,23 +516,29 @@ body {
             inline-size: 5rem;
             block-size: 5rem;
             object-fit: contain;
+
+            @media (max-width: 745px) {
+                inline-size: 3.75rem;
+                block-size: 3.75rem;
+            }
         }
     }
 
     &__text {
         h3{
             color: var(--cards-title);
-            font-size: 1.25rem;
             font-weight: 600;
             line-height: 1.5; /* 30px */
             letter-spacing: -0.025rem;
             margin-block-end: .75rem;
+            @include adaptiveValue("font-size", 20, 16);
         }
 
         p{
             color: var(--card-text);
             line-height: 1.5; /* 24px */
             letter-spacing: -0.02rem;
+            @include adaptiveValue("font-size", 16, 14);
         }
     }
 }
@@ -554,11 +587,25 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 
+    @media (max-width: 745px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 533px) {
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+
     &__item {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
         overflow: hidden;
+
+        @media (max-width: 533px) {
+            max-width: 21.375rem;
+            margin: 0 auto;
+        }
+        
     }
 
     &__img {
@@ -577,17 +624,18 @@ body {
 
     &__text {
         h3 {
-            font-size: 24px;
             font-weight: 600;
             line-height: 1.5; /* 36px */
             letter-spacing: -0.045rem;
             margin-block-end: .75rem;
+            @include adaptiveValue("font-size", 24, 18);
         }
 
         p {
             color: var(--card-text);
             line-height: 1.5; /* 24px */
             letter-spacing: -0.02rem;
+            @include adaptiveValue("font-size", 16, 14);
         }
     }
 }
@@ -598,9 +646,11 @@ body {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        gap: 2.5rem;
         border-radius: 1.5rem;
         background: var(--cards-bg);
-        padding: 6.25rem 7.5rem;
+        @include adaptiveValue("padding-block", 100, 60);
+        @include adaptiveValue("padding-inline", 120, 40);
         align-items: center;
         position: relative;
         overflow: hidden;
@@ -619,12 +669,22 @@ body {
         }
 
         h2{
-            font-size: 2.375rem;
+            @include adaptiveValue("font-size", 38, 32);
             font-weight: 600;
             line-height: 1.2; /* 45.6px */
             letter-spacing: -0.0712rem;
-            flex: 1 1 59.349593%; /* 584/984 */
+            // flex: 1 1 59.349593%; /* 584/984 */
         }
+
+        @media (max-width: 761px) {
+            justify-content: center;
+            > .block-buttons {
+                gap: 1rem;
+            }
+            
+        }
+
+        
     }
 }
 

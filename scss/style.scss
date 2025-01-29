@@ -437,7 +437,7 @@ body {
 .title-block {
     display: flex;
     column-gap: max(1.25rem, min(10vw, 8rem));
-   
+
 
     @media (max-width: 745px) {
         flex-direction: column;
@@ -466,6 +466,10 @@ body {
 
     &--column {
         flex-direction: column;
+        width: 100%;
+        @media (max-width: 984px) {
+            gap: 1.5rem;
+        }
     }
 
     &--center {
@@ -715,8 +719,17 @@ body {
         justify-content: space-between;
         gap: 15px;
 
+        @media (max-width: 984px) {
+            flex-direction: column;
+        }
+
         > p {
             max-width: 31rem;
+
+            @media (max-width: 984px) {
+                align-self: flex-start;
+            }
+            
         }
     }
 }
@@ -726,6 +739,12 @@ body {
     align-items: flex-end;
     flex: 0 1 37.5rem;
     gap: 1.5rem;
+
+    @media (max-width: 984px) {
+        flex: none;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 
     &__item {
         display: flex;

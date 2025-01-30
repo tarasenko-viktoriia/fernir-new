@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
                this.classList.remove("active");
             } else {
                content.classList.add("active");
-               content.style.maxHeight = content.scrollHeight + "px"; // Динамічна висота
+               content.style.maxHeight = content.scrollHeight + "px"; 
                this.classList.add("active");
             }
          });
@@ -267,5 +267,19 @@ btns.forEach((btn) => {
 
       btn.style.setProperty("--x", x + "px");
       btn.style.setProperty("--y", y + "px");
+   });
+});
+
+//Footer
+document.querySelectorAll('.footer__item h4').forEach(item => {
+   item.addEventListener('click', () => {
+      const parent = item.parentElement;
+      parent.classList.toggle('active');
+
+      document.querySelectorAll('.footer__item').forEach(el => {
+         if (el !== parent) {
+            el.classList.remove('active');
+         }
+      });
    });
 });

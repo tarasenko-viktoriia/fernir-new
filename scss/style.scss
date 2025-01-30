@@ -475,7 +475,7 @@ body {
     &--center {
         text-align: center;
         flex-direction: column;
-        margin-block-end: 3.75rem;
+        @include adaptiveValue("margin-block-end", 60, 40);
     }
 } 
 
@@ -926,16 +926,37 @@ body {
     line-height: 1.5; /* 21px */
     letter-spacing: -0.0175rem;
 }
-.cards-blog { 
+.cards-blog {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    justify-items: center;
+
+    @media (max-width: 983px) {
+        grid-template-columns: repeat(2, 1fr);
+
+        &.odd .cards-blog__item:last-child {
+            grid-column: span 2;
+            justify-self: center;
+        }
+    }
+    @media (max-width: 650px) {
+        grid-template-columns: repeat(1, 1fr);
+
+        &.odd .cards-blog__item:last-child {
+            grid-column: auto;
+            justify-self: auto; 
+        }
+    }
 
     &__item {
+        display: flex;
+        flex-direction: column;
         border-radius: .625rem;
         border: var(--cards-border);
         background: var(--cards-bg);
         padding: 1.5625rem;
+        max-width: 24.5rem;
     }
 
     &__img {
@@ -954,9 +975,10 @@ body {
     &__text {
         padding-block: 1.1875rem;
         border-bottom: .0625rem solid rgba(217, 217, 217, 0.15);
+        flex-grow: 1;
 
         h3 {
-            font-size: 1.5rem;
+            @include adaptiveValue("font-size", 24, 18);
             font-weight: 600;
             line-height: 1.5; /* 36px */
             letter-spacing: -0.045rem;
@@ -973,6 +995,7 @@ body {
         display: flex;
         justify-content: space-between;
         gap: .625rem;
+        align-items: center;
 
         p {
             @include common-paragraph-styles;
@@ -1119,7 +1142,7 @@ body {
         block-size: 1.5rem;
         object-fit: contain;
         a svg path {
-            transition: fill 0.3s ease; /* Додаємо плавність зміни кольору */
+            transition: fill 0.3s ease; 
         }
     }
     &__text {

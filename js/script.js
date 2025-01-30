@@ -283,3 +283,11 @@ document.querySelectorAll('.footer__item h4').forEach(item => {
       });
    });
 });
+const cards = document.querySelectorAll('.cards-blog__item');
+   const blogCards = document.querySelector('.cards-blog');
+
+   if (cards.length % 2 !== 0) {
+      blogCards.classList.add('odd');
+   } else {
+      blogCards.classList.remove('odd');
+}

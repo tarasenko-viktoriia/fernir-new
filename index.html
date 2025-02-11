@@ -173,48 +173,170 @@
 				<div class="product__container">
 					<div class="product__nav nav-product">
 						<ul class="nav-product__list">
-							<li class="nav-product__item active">Product</li>
-							<li class="nav-product__item">Integration</li>
-							<li class="nav-product__item">Pricing</li>
-							<li class="nav-product__item">Demo</li>
+							<li class="nav-product__item active" data-tab="product">Product</li>
+							<li class="nav-product__item" data-tab="integration">Integration</li>
+							<li class="nav-product__item" data-tab="pricing">Pricing</li>
+							<li class="nav-product__item" data-tab="demo">Demo</li>
 						</ul>
 					</div>
-					<div class="title-block">
-						<h2>Easy, Simple, <br> Affordable </h2>
-						<p>Our platform simplifies managing your business finances. Here’s why SaaS Kit is the ideal choice for expense management:</p>
+					<div class="content">
+						<div class="content__block active" data-content="product">
+							<div class="title-block">
+								<h2>Easy, Simple, <br> Affordable </h2>
+								<p>Our platform simplifies managing your business finances. Here’s why SaaS Kit is the ideal choice for expense management:</p>
+							</div>
+							<div class="product__cards cards-product">
+								<div class="cards-product__item">
+									<div class="cards-product__img">
+										<div class="circle"></div>
+										<img id="product-01" src="img/product-01.png" alt="Automatic Invoice Payments">
+									</div>
+									<div class="cards-product__text">
+										<h3>Automatic Invoice Payments</h3>
+										<p>Say goodbye to manual payments! With SaaS Kit, you can set a payment schedule, and invoices are paid automatically—it's that simple.</p>
+									</div>
+								</div>
+								<div class="cards-product__item">
+									<div class="cards-product__img">
+										<div class="circle"></div>
+										<img id="product-02" src="img/product-02.png" alt="Use of multi-card payments">
+									</div>
+									<div class="cards-product__text">
+										<h3>Use of multi-card payments</h3>
+										<p>Managing multiple bank accounts or credit/debit cards? SaaS Kit seamlessly integrates with banks worldwide, making payments smoother than ever.</p>
+									</div>
+								</div>
+								<div class="cards-product__item">
+									<div class="cards-product__img">
+										<div class="circle"></div>
+										<img id="product-03" src="img/product-03.png" alt="Clear payment history">
+									</div>
+									<div class="cards-product__text">
+										<h3>Clear payment history</h3>
+										<p>Get a detailed breakdown of every logged expense down to the millisecond. Stay on top of your financials effortlessly.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Контент для Integration -->
+						<div class="content__block integration" data-content="integration">
+							<div class="integration__block">
+								<div class="integration__card">
+									<div class="integration__title">Simple analytics</div>
+									<p>Make informed decisions backed by 
+										data through our analytics tools. </p>
+									<img src="img/integration-img01.png" alt="schedule">
+								</div>
+								<div class="integration__card">
+									<h5>Boosting Business. Today and Tomorrow.</h5>
+									<p>Bring harmony to team expenses with budget limits and real-time monitiring. Freedom for your staff. Peace of mind for you.</p>
+									<img src="img/integration-img02.png" alt="schedule">
+								</div>
+								<div class="integration__card">
+									<div class="integration__title">Easy collaboration</div>
+									<p>Seamlessly collaborate with your team 
+										members like never before.</p>
+									<img src="img/integration-img03.png" alt="team">
+								</div>
+								<div class="integration__card">
+									<h4>Real-time accounting at your fingertips.</h4>
+									<p>Take the pain out of book keeping! Wave goodbye to mountains of paperwork and endless email reminders. There`s now a new way of accounting. </p>
+									<div class="integration__img">
+										<img src="img/integration-img04-1.png" alt="">
+										<img src="img/integration-img04-2.png" alt="">
+									</div>
+								</div>
+								<div class="integration__card">
+									<h3>Optimise expense
+										Management as a team</h3>
+									<p>Bring harmony to team expenses with budget limits and
+										real-time monitiring. Freedom for your staff. Peace of
+										mind for you. </p>
+									<div class="demo-button">
+										<a href="#">Get a Free Demo</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Контент для Pricing -->
+						<div class="content__block" data-content="pricing">
+							<div class="pricing">
+								<div class="title-block title-block--center">
+									<h2>Find the right plan</h2>
+									<p>Use SaaS Kit for free with your whole team. Upgrade to enable unlimited issues, enhanced security controls, and additional features.</p>
+								</div>
+								<div class="pricing__block">
+									<div class="pricing__card card-pricing">
+										<div class="card-pricing__text">
+											<h3>Basic</h3>
+											<p>Get a professional website designed according to your needs.</p>
+											<div class="card-pricing__block"><span>$499</span>/month</div>
+											<div>
+												<ul class="card-pricing__list">
+													<li class="card-pricing__item">Unlimited members</li>
+													<li class="card-pricing__item">2 teams</li>
+													<li class="card-pricing__item">250 issues</li>
+												</ul>
+											</div>
+										</div>
+										<div class="start-button start-button--color">
+											<a href="#">Get started</a>
+										</div>
+									</div>
+									<div class="pricing__card card-pricing card-pricing--color">
+										<div class="card-pricing__text">
+											<div class="mark">Popular</div>
+											<h3>Pro</h3>
+											<p>Get a professional website designed according to your needs.</p>
+											<div class="card-pricing__block"><span>$499</span>/month</div>
+											<div>
+												<ul class="card-pricing__list">
+													<li class="card-pricing__item">All Free features +</li>
+													<li class="card-pricing__item">5 teams</li>
+													<li class="card-pricing__item">Unlimited issues</li>
+													<li class="card-pricing__item">Unlimited file uploads</li>
+													<li class="card-pricing__item">Admin roles</li>
+													<li class="card-pricing__item">Email support</li>
+												</ul>
+											</div>
+										</div>
+										<div class="start-button">
+											<a href="#">Get started</a>
+										</div>
+									</div>
+									<div class="pricing__card card-pricing card-pricing--color">
+										<div class="card-pricing__text">
+											<h3>Enterprise</h3>
+											<p>Get a professional website designed according to your needs.</p>
+											<div class="card-pricing__block"><span>$999</span>/month</div>
+											<div>
+												<ul class="card-pricing__list">
+													<li class="card-pricing__item">All Free features</li>
+													<li class="card-pricing__item">Advanced Linear Asks</li>
+													<li class="card-pricing__item">Issue SLAs</li>
+													<li class="card-pricing__item">Private teams and guests</li>
+													<li class="card-pricing__item">Linear Insights</li>
+													<li class="card-pricing__item">Triage responsibility</li>
+													<li class="card-pricing__item">Zendesk and Intercom integrations</li>
+												</ul>
+											</div>
+										</div>
+										<div class="start-button">
+											<a href="#">Get started</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Контент для Demo -->
+						<div class="content__block" data-content="demo">
+							<h2>Live Demo</h2>
+							<p>See SaaS Kit in action...</p>
+						</div>
 					</div>
-					<div class="product__cards cards-product">
-						<div class="cards-product__item">
-							<div class="cards-product__img">
-								<div class="circle"></div>
-								<img id="product-01" src="img/product-01.png" alt="Automatic Invoice Payments">
-							</div>
-							<div class="cards-product__text">
-								<h3>Automatic Invoice Payments</h3>
-								<p>Say goodbye to manual payments! With SaaS Kit, you can set a payment schedule, and invoices are paid automatically—it's that simple.</p>
-							</div>
-						</div>
-						<div class="cards-product__item">
-							<div class="cards-product__img">
-								<div class="circle"></div>
-								<img id="product-02" src="img/product-02.png" alt="Use of multi-card payments">
-							</div>
-							<div class="cards-product__text">
-								<h3>Use of multi-card payments</h3>
-								<p>Managing multiple bank accounts or credit/debit cards? SaaS Kit seamlessly integrates with banks worldwide, making payments smoother than ever.</p>
-							</div>
-						</div>
-						<div class="cards-product__item">
-							<div class="cards-product__img">
-								<div class="circle"></div>
-								<img id="product-03" src="img/product-03.png" alt="Clear payment history">
-							</div>
-							<div class="cards-product__text">
-								<h3>Clear payment history</h3>
-								<p>Get a detailed breakdown of every logged expense down to the millisecond. Stay on top of your financials effortlessly.</p>
-							</div>
-						</div>
-					</div>					
 				</div>
 			</section>
 			<section class="buttons-section">

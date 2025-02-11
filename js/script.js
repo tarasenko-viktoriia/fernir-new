@@ -291,3 +291,21 @@ const cards = document.querySelectorAll('.cards-blog__item');
    } else {
       blogCards.classList.remove('odd');
 }
+//Product section
+document.addEventListener("DOMContentLoaded", function () {
+	const tabs = document.querySelectorAll(".nav-product__item");
+	const contents = document.querySelectorAll(".content__block");
+
+	tabs.forEach(tab => {
+		tab.addEventListener("click", function () {
+			tabs.forEach(item => item.classList.remove("active"));
+			this.classList.add("active");
+
+			const tabName = this.getAttribute("data-tab");
+
+			contents.forEach(content => content.classList.remove("active"));
+
+			document.querySelector(`[data-content="${tabName}"]`).classList.add("active");
+		});
+	});
+});

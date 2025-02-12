@@ -46,6 +46,8 @@
     --btn-stroke: #fff;
     --btn-hover-stroke: #000;
     --testim-comma: url("../img/inverted-comma.png") 0 0 / 100% no-repeat;
+    --pricing-checkmark: url(../img/icons/checkmark.svg) 0 0 / 100% no-repeat;
+    --pricing-border-bottom: #242424;
 }
 
 [data-theme="light"] {
@@ -79,6 +81,8 @@
     --btn-stroke: #000;
     --btn-hover-stroke: #fff;
     --testim-comma: url("../img/inverted-comma-light.png") 0 0 / 100% no-repeat;
+    --pricing-checkmark: url(../img/icons/checkmark-light.svg) 0 0 / 100% no-repeat;
+    --pricing-border-bottom: #BDBDBD;
 }
 
 
@@ -199,6 +203,21 @@ body {
     color: #fff;
     position: relative;
     overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background-color: var(--demo-button-bg);
+        border-radius: 48px;
+    }
+    &--color {
+        background-color: #4D58FF;
+
+        &::after {
+            background-color: #4D58FF;
+        }
+    }
 }
 .talk-button {
     position: relative;
@@ -209,6 +228,15 @@ body {
     overflow: hidden;
     transition: 0.5s;
 
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background-color: var(--talk-button-bg);
+        border-radius: 48px;
+    }
+}
+.talk-button, .demo-button{
     span {
         position: relative;
         z-index: 1;
@@ -226,13 +254,9 @@ body {
         transition: 0.5s, top 0s, left 0s;
         opacity: 0;
     }
-
-    &::after {
-        content: "";
-        position: absolute;
-        inset: 2px;
-        background-color: var(--talk-button-bg);
-        border-radius: 48px;
+    a {
+        position: relative;
+        z-index: 1;
     }
 }
 .hero{
@@ -576,13 +600,10 @@ body {
     }
 }
 
-.nav-product__item.active {
+.nav-product__item.active, .nav-product__item:hover {
     border-radius: 2.5rem;
     background: var(--nav-hover-bg);
     color: var(--nav-color-text);
-}
-.nav-product__item:not(.active):hover {
-    color: var(--hover-color);
 }
 .cards-product {
     display: grid;
@@ -697,8 +718,8 @@ body {
         display: flex;
         flex-direction: column;
         border-radius: 24.5232px;
-        border: .0511rem solid #333;
-        background-color: #161616;
+        border: var(--cards-border);
+        background-color: var(--cards-bg);
 
         h3{
             font-size: 32px;
@@ -741,6 +762,7 @@ body {
     &__img {
         display: flex;
         align-items: flex-end;
+        gap: 1.875rem;
     }
 }
 
@@ -751,10 +773,9 @@ body {
     }
     &__card {
         border-radius: 24px;
-        background-color: #161616;
+        background-color: var(--cards-bg);
         padding: 4.5rem 2.5rem 2.5rem;
-
-        
+        border: var(--cards-border);
     }
 }
 
@@ -792,7 +813,7 @@ body {
         align-items: center;
         gap: 8px;
         
-        color: #FBFBFB;
+        color: var(--card-text);
         font-family: "DM Sans";
         line-height: 1.2; /* 120% */
 
@@ -801,18 +822,19 @@ body {
             flex-shrink: 0;
             inline-size: 1rem;
             block-size: 1rem;
-            background: url(../img/icons/checkmark.svg) 0 0 / 100% no-repeat;
+            background: var(--pricing-checkmark)
         }
     }
     &__block{
-        color: #E0E0E0;
+        color: var(--accordion-title);
         text-align: center;
         line-height: 1.5; /* 1.5rem */
         letter-spacing: -0.02rem;
         padding-block: 4.3125rem;
-        border-bottom: .0625rem solid #242424;
+        border-bottom: .0625rem solid var(--pricing-border-bottom);
         margin-block-end: 3rem;
         span {
+            color: var(--main-text-color);
             text-align: center;
             font-size: 2.5rem;
             font-weight: 500;
@@ -851,6 +873,7 @@ body {
     }
 }
 .start-button {
+    color: #fff;
     cursor: pointer;
     border-radius: 1.875rem;
     background-color:  #4D58FF;
@@ -1402,12 +1425,12 @@ body {
     .menu__item:hover .menu__link, .footer__link:hover, .menu__link--icon:hover::after {
         color: var(--hover-color);
     }
-    .talk-button:hover {
+    .demo-button:hover, .talk-button:hover {
         color: #fff;
         text-shadow: 0 0 15px #fff, 0 0 40px #fff;
     }
 
-    .talk-button:hover::before {
+    .demo-button:hover::before, .talk-button:hover::before {
         opacity: 1;
     }
 

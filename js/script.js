@@ -60,6 +60,17 @@ const logo06 = document.getElementById('look-who-charging-logo-02');
 const logo07 = document.getElementById('top-to-toe-icon-02');
 const logo08 = document.getElementById('fan-finders-icon-02');
 
+const integration01 = document.getElementById('integration-img01');
+const integration02 = document.getElementById('integration-img02');
+const integration03 = document.getElementById('integration-img03');
+const integration04 = document.getElementById('integration-img04');
+const integration05 = document.getElementById('integration-img05');
+
+const testimonials01 = document.getElementById('testimonials-img01');
+const testimonials02 = document.getElementById('testimonials-img02');
+const testimonials03 = document.getElementById('testimonials-img03');
+const testimonials04 = document.getElementById('testimonials-img04');
+
 const savedTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
 
@@ -129,6 +140,32 @@ function updateIcon(theme) {
    const logo08ImgSrc = theme === 'light' ? 'img/icons/fan-finders-light.svg' : 'img/icons/fan-finders.svg';
    logo08.setAttribute('src', logo08ImgSrc);
 
+   const integration01ImgSrc = theme === 'light' ? 'img/integration-img01-light.png' : 'img/integration-img01.png';
+   integration01.setAttribute('src', integration01ImgSrc);
+
+   const integration02ImgSrc = theme === 'light' ? 'img/integration-img02-light.png' : 'img/integration-img02.png';
+   integration02.setAttribute('src', integration02ImgSrc);
+
+   const integration03ImgSrc = theme === 'light' ? 'img/integration-img03-light.png' : 'img/integration-img03.png';
+   integration03.setAttribute('src', integration03ImgSrc);
+
+   const integration04ImgSrc = theme === 'light' ? 'img/integration-img04-1-light.png' : 'img/integration-img04-1.png';
+   integration04.setAttribute('src', integration04ImgSrc);
+
+   const integration05ImgSrc = theme === 'light' ? 'img/integration-img04-2-light.png' : 'img/integration-img04-2.png';
+   integration05.setAttribute('src', integration05ImgSrc);
+
+   const testimonials01ImgSrc = theme === 'light' ? 'img/john_D-light.png' : 'img/john_D.png';
+   testimonials01.setAttribute('src', testimonials01ImgSrc);
+
+   const testimonials02ImgSrc = theme === 'light' ?  'img/ava_A-light.png':'img/ava_A.png';
+   testimonials02.setAttribute('src', testimonials02ImgSrc);
+
+   const testimonials03ImgSrc = theme === 'light' ? 'img/james_D-light.png':'img/james_D.png';
+   testimonials03.setAttribute('src', testimonials03ImgSrc);
+
+   const testimonials04ImgSrc = theme === 'light' ? 'img/Olivia_I-light.png' : 'img/Olivia_I.png';
+   testimonials04.setAttribute('src', testimonials04ImgSrc);
 
    // Змінюємо fill для всіх SVG
    const svgs = document.querySelectorAll('.icons-footer__link svg path');
@@ -257,7 +294,7 @@ window.addEventListener("scroll", function () {
 });
 
 // Button talk-button
-let btns = document.querySelectorAll(".talk-button");
+let btns = document.querySelectorAll(".talk-button, .demo-button");
 
 btns.forEach((btn) => {
    btn.addEventListener("mousemove", function (e) {

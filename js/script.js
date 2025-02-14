@@ -293,8 +293,8 @@ window.addEventListener("scroll", function () {
    }
 });
 
-// Button talk-button
-let btns = document.querySelectorAll(".talk-button, .demo-button");
+// Button 
+let btns = document.querySelectorAll(".talk-button, .demo-button, .blog__button, .start-button");
 
 btns.forEach((btn) => {
    btn.addEventListener("mousemove", function (e) {

@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:regular,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=DM+Sans:regular,500,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Inter:regular,500,600&display=swap");
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:regular&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Ubuntu:regular&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
 @font-face {
   font-family: "Satoshi";
   src: url("../fonts/Satoshi-Bold.woff2") format("woff2");
@@ -135,6 +131,7 @@ textarea {
   --testim-comma: url("../img/inverted-comma.png") 0 0 / 100% no-repeat;
   --pricing-checkmark: url(../img/icons/checkmark.svg) 0 0 / 100% no-repeat;
   --pricing-border-bottom: #242424;
+  --button-gradient: #fff;
 }
 
 [data-theme=light] {
@@ -170,6 +167,7 @@ textarea {
   --testim-comma: url("../img/inverted-comma-light.png") 0 0 / 100% no-repeat;
   --pricing-checkmark: url(../img/icons/checkmark-light.svg) 0 0 / 100% no-repeat;
   --pricing-border-bottom: #BDBDBD;
+  --button-gradient: #4D58FF;
 }
 
 body {
@@ -354,6 +352,11 @@ body {
   border-radius: 48px;
 }
 
+.talk-button, .demo-button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
 .talk-button span, .demo-button span {
   position: relative;
   z-index: 1;
@@ -368,7 +371,7 @@ body {
           transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
-  background: radial-gradient(#fff, transparent, transparent);
+  background: radial-gradient(var(--button-gradient), transparent, transparent);
   -webkit-transition: 0.5s, top 0s, left 0s;
   transition: 0.5s, top 0s, left 0s;
   opacity: 0;
@@ -1039,6 +1042,26 @@ body {
   line-height: 1.5; /* 1.5rem */
   letter-spacing: -0.32px;
 }
+@media (min-width: 78.375em) {
+  .nav-product__item {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .nav-product__item {
+    font-size: clamp( 0.875rem , 0.8321734475rem  +  0.2141327623vw , 1rem );
+  }
+}
+@media (max-width: 20em) {
+  .nav-product__item {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 500px) {
+  .nav-product__item {
+    padding: 10px 18px;
+  }
+}
 
 .nav-product__item.active, .nav-product__item:hover {
   border-radius: 2.5rem;
@@ -1228,6 +1251,12 @@ body {
   line-height: 1.5; /* 1.3125rem */
 }
 .integration__card > .demo-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-item-align: start;
       align-self: flex-start;
 }
@@ -1379,13 +1408,48 @@ body {
   border-radius: 1.875rem;
   background-color: #4D58FF;
   padding: 0.8125rem 1.5rem;
+  position: relative;
+  overflow: hidden;
   text-align: center;
   font-weight: 600;
   line-height: 1.5; /* 24px */
   letter-spacing: -0.02rem;
 }
+.start-button::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background-color: var(--demo-button-bg);
+  border-radius: 48px;
+}
+.start-button::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(var(--button-gradient), transparent, transparent);
+  -webkit-transition: 0.5s, top 0s, left 0s;
+  transition: 0.5s, top 0s, left 0s;
+  opacity: 0;
+}
+.start-button a {
+  position: relative;
+  z-index: 1;
+}
 .start-button--color {
   background-color: #404040;
+}
+.start-button--color::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background-color: var(--talk-button-bg);
+  border-radius: 48px;
 }
 
 .buttons-section__block {
@@ -1469,8 +1533,15 @@ body {
     font-size: 2rem;
   }
 }
-@media (max-width: 47.5625rem) {
+@media (max-width: 359.98px) {
+  .buttons-section__block h2 {
+    text-align: center;
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 761px) {
   .buttons-section__block {
+    text-align: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -1850,11 +1921,40 @@ body {
 .blog__button {
   border-radius: 60px;
   border: var(--button-border);
-  background: var(--talk-button-bg);
+  background-color: var(--talk-button-bg);
   padding: 13px 24px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
   font-weight: 600;
   line-height: 1.5; /* 1.5rem */
   letter-spacing: -0.32px;
+}
+.blog__button::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background-color: var(--talk-button-bg);
+  border-radius: 48px;
+}
+.blog__button::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(var(--button-gradient), transparent, transparent);
+  -webkit-transition: 0.5s, top 0s, left 0s;
+  transition: 0.5s, top 0s, left 0s;
+  opacity: 0;
+}
+.blog__button a {
+  position: relative;
+  z-index: 1;
 }
 
 .cards-blog {
@@ -1975,6 +2075,8 @@ body {
   font-weight: 600;
   line-height: 1.5; /* 1.5rem */
   letter-spacing: -0.32px;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
 }
 .cards-blog__button::after {
   content: "";
@@ -1983,6 +2085,15 @@ body {
   inline-size: 24px;
   block-size: 24px;
   background: var(--arrow-card);
+}
+@media (any-hover: hover) {
+  .cards-blog__button:hover {
+    color: #4D58FF;
+  }
+  .cards-blog__button:hover::after {
+    -webkit-filter: brightness(0) saturate(100%) invert(18%) sepia(97%) saturate(2000%) hue-rotate(220deg) brightness(105%);
+            filter: brightness(0) saturate(100%) invert(18%) sepia(97%) saturate(2000%) hue-rotate(220deg) brightness(105%);
+  }
 }
 
 .footer {
@@ -2204,11 +2315,10 @@ body {
   .menu__item:hover .menu__link, .footer__link:hover, .menu__link--icon:hover::after {
     color: var(--hover-color);
   }
-  .demo-button:hover, .talk-button:hover {
-    color: #fff;
+  .demo-button:hover, .talk-button:hover, .blog__button:hover, .start-button:hover {
     text-shadow: 0 0 15px #fff, 0 0 40px #fff;
   }
-  .demo-button:hover::before, .talk-button:hover::before {
+  .demo-button:hover::before, .talk-button:hover::before, .blog__button:hover::before, .start-button:hover::before {
     opacity: 1;
   }
   .icons-footer__item a:hover svg path {

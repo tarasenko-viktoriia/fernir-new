@@ -678,6 +678,15 @@ body {
         row-gap: 30px;
         column-gap: 24px;
 
+        @media (max-width: 958px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr; 
+
+        }
+
         & > *:nth-child(1),
         & > *:nth-child(3) {
             padding: 44px 22px;
@@ -720,6 +729,23 @@ body {
                 letter-spacing: -0.36px;
                 margin-bottom: 34px;
                 max-width: 474px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            & > *:nth-child(2),
+            & > *:nth-child(4),
+            & > *:nth-child(5) {
+                grid-column: 1 / span 2;
+            }
+        }
+
+        // Адаптив для маленьких екранів (768px)
+        @media (max-width: 768px) {
+
+            & > * {
+                grid-column: 1 / -1;
+                text-align: center;
             }
         }
     }
@@ -777,16 +803,28 @@ body {
     }
 }
 
-.pricing{
+.pricing {
     &__block {
         display: flex;
         gap: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     &__card {
         border-radius: 24px;
         background-color: var(--cards-bg);
         padding: 4.5rem 2.5rem 2.5rem;
         border: var(--cards-border);
+        max-width: 24.5rem;
+        flex: 1 1 calc(33.333% - 24px);
+
+        @media (max-width: 1024px) {
+            flex: 1 1 calc(50% - 24px); 
+        }
+
+        @media (max-width: 650px) {
+            flex: 1 1 100%; 
+        }
     }
 }
 
@@ -801,7 +839,7 @@ body {
     }
     h3 {
         text-align: center;
-        font-size: 32px;
+        @include adaptiveValue("font-size", 32, 28);
         font-weight: 600;
         line-height: 1.2; /* 2.4rem */
         letter-spacing: -0.96px;
@@ -812,6 +850,7 @@ body {
         text-align: center;
         line-height: 1.5; /* 1.5rem */
         letter-spacing: -0.32px;
+        @include adaptiveValue("font-size", 16, 14);
     }
     &__list {
         display: flex;
@@ -847,13 +886,14 @@ body {
         span {
             color: var(--main-text-color);
             text-align: center;
-            font-size: 2.5rem;
+            @include adaptiveValue("font-size", 40, 32);
             font-weight: 500;
             line-height: 1.5; /* 60px */
             letter-spacing: -0.075rem;
         }
     }
     &__text {
+        @include adaptiveValue("font-size", 16, 14);
         flex-grow: 1;
     }
 }
@@ -867,7 +907,7 @@ body {
 
     color: #33C6AB;
     font-family: "DM Sans";
-    font-size: .875rem;
+    @include adaptiveValue("font-size", 14, 12);
     font-weight: 500;
     line-height: 1.2; /* 120% */
 

@@ -1168,6 +1168,16 @@ body {
      -moz-column-gap: 24px;
           column-gap: 24px;
 }
+@media (max-width: 958px) {
+  .integration__block {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .integration__block {
+    grid-template-columns: 1fr;
+  }
+}
 .integration__block > *:nth-child(1), .integration__block > *:nth-child(3) {
   padding: 44px 22px;
   text-align: center;
@@ -1210,6 +1220,17 @@ body {
   letter-spacing: -0.36px;
   margin-bottom: 34px;
   max-width: 474px;
+}
+@media (max-width: 850px) {
+  .integration__block > *:nth-child(2), .integration__block > *:nth-child(4), .integration__block > *:nth-child(5) {
+    grid-column: 1/span 2;
+  }
+}
+@media (max-width: 768px) {
+  .integration__block > * {
+    grid-column: 1/-1;
+    text-align: center;
+  }
 }
 .integration__card {
   display: -webkit-box;
@@ -1281,12 +1302,35 @@ body {
   display: -ms-flexbox;
   display: flex;
   gap: 24px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .pricing__card {
   border-radius: 24px;
   background-color: var(--cards-bg);
   padding: 4.5rem 2.5rem 2.5rem;
   border: var(--cards-border);
+  max-width: 24.5rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 calc(33.333% - 24px);
+          flex: 1 1 calc(33.333% - 24px);
+}
+@media (max-width: 1024px) {
+  .pricing__card {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 calc(50% - 24px);
+            flex: 1 1 calc(50% - 24px);
+  }
+}
+@media (max-width: 650px) {
+  .pricing__card {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
 }
 
 .card-pricing {
@@ -1304,18 +1348,47 @@ body {
 }
 .card-pricing h3 {
   text-align: center;
-  font-size: 32px;
   font-weight: 600;
   line-height: 1.2; /* 2.4rem */
   letter-spacing: -0.96px;
   -webkit-margin-after: 24px;
           margin-block-end: 24px;
 }
+@media (min-width: 78.375em) {
+  .card-pricing h3 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .card-pricing h3 {
+    font-size: clamp( 1.75rem , 1.6643468951rem  +  0.4282655246vw , 2rem );
+  }
+}
+@media (max-width: 20em) {
+  .card-pricing h3 {
+    font-size: 1.75rem;
+  }
+}
 .card-pricing p {
   color: #9B9CA1;
   text-align: center;
   line-height: 1.5; /* 1.5rem */
   letter-spacing: -0.32px;
+}
+@media (min-width: 78.375em) {
+  .card-pricing p {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .card-pricing p {
+    font-size: clamp( 0.875rem , 0.8321734475rem  +  0.2141327623vw , 1rem );
+  }
+}
+@media (max-width: 20em) {
+  .card-pricing p {
+    font-size: 0.875rem;
+  }
 }
 .card-pricing__list {
   display: -webkit-box;
@@ -1362,15 +1435,44 @@ body {
 .card-pricing__block span {
   color: var(--main-text-color);
   text-align: center;
-  font-size: 2.5rem;
   font-weight: 500;
   line-height: 1.5; /* 60px */
   letter-spacing: -0.075rem;
+}
+@media (min-width: 78.375em) {
+  .card-pricing__block span {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .card-pricing__block span {
+    font-size: clamp( 2rem , 1.8286937901rem  +  0.8565310493vw , 2.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .card-pricing__block span {
+    font-size: 2rem;
+  }
 }
 .card-pricing__text {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+@media (min-width: 78.375em) {
+  .card-pricing__text {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .card-pricing__text {
+    font-size: clamp( 0.875rem , 0.8321734475rem  +  0.2141327623vw , 1rem );
+  }
+}
+@media (max-width: 20em) {
+  .card-pricing__text {
+    font-size: 0.875rem;
+  }
 }
 
 .mark {
@@ -1382,7 +1484,6 @@ body {
   padding: 0.5rem 0.75rem;
   color: #33C6AB;
   font-family: "DM Sans";
-  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.2; /* 120% */
   display: -webkit-inline-box;
@@ -1392,6 +1493,21 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.3125rem;
+}
+@media (min-width: 78.375em) {
+  .mark {
+    font-size: 0.875rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .mark {
+    font-size: clamp( 0.75rem , 0.7071734475rem  +  0.2141327623vw , 0.875rem );
+  }
+}
+@media (max-width: 20em) {
+  .mark {
+    font-size: 0.75rem;
+  }
 }
 .mark::before {
   content: "";

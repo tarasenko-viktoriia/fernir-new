@@ -170,6 +170,9 @@ body {
     &__item:not(:last-child) {
         margin-block-end: 10px;
     }
+    &__link{
+        transition: color 0.3s ease;
+    }
 }
 .menu__link--icon {
     display: inline-flex;
@@ -417,7 +420,10 @@ body {
 }
 
 .demo-button, .talk-button {
-    // flex: 1 1 11.875rem; 
+    min-height: 3.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 7.8125rem; 
     max-width: 100%; 
     text-align: center; 
@@ -1584,7 +1590,7 @@ body {
         fill: var(--hover-color);
     }
     .sub-menu__link:hover {
-        text-decoration: underline;
+        color: var(--hover-color);
     }
     
     .menu__item:hover .sub-menu {

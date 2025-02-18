@@ -269,6 +269,10 @@ body {
   -webkit-margin-after: 10px;
           margin-block-end: 10px;
 }
+.sub-menu__link {
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
 
 .menu__link--icon {
   display: -webkit-inline-box;
@@ -680,6 +684,16 @@ body {
 }
 
 .demo-button, .talk-button {
+  min-height: 3.125rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   min-width: 7.8125rem;
   max-width: 100%;
   text-align: center;
@@ -2460,7 +2474,7 @@ body {
     fill: var(--hover-color);
   }
   .sub-menu__link:hover {
-    text-decoration: underline;
+    color: var(--hover-color);
   }
   .menu__item:hover .sub-menu {
     visibility: visible;

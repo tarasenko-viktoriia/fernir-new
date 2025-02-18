@@ -843,6 +843,13 @@ body {
             flex: 1 1 100%; 
         }
     }
+    > .title-block--center h2 {
+        margin-block-end: 1rem;
+    }
+    > .title-block--center p {
+        max-width: 50.4375rem;
+        margin: 0 auto;
+    }
 }
 
 .card-pricing {
@@ -980,7 +987,7 @@ body {
     }
 
     &--color {
-        background-color: #404040;
+        background-color: #1D1C20;
 
         &::after {
             content: "";
@@ -1577,7 +1584,7 @@ body {
     [data-theme="light"] .talk-button:hover, 
     .blog__button:hover, 
     [data-theme="light"] .start-button:hover {
-        background-color: #404040;
+        background-color: #1D1C20;
         color: #fff;
         transition: background-color 0.3s ease;
     }
@@ -1587,7 +1594,7 @@ body {
         transition: background-color 0.3s ease;
     }
     [data-theme="light"] .demo-button--color:hover{
-        background-color: #404040;
+        background-color: #1D1C20;
         color: #fff;
         transition: background-color 0.3s ease;
     }

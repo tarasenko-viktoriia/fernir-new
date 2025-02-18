@@ -132,6 +132,7 @@ textarea {
   --pricing-checkmark: url(../img/icons/checkmark.svg) 0 0 / 100% no-repeat;
   --pricing-border-bottom: #242424;
   --button-gradient: #fff;
+  --button-hover-effect: radial-gradient(var(--button-gradient), transparent, transparent);
 }
 
 [data-theme=light] {
@@ -168,6 +169,8 @@ textarea {
   --pricing-checkmark: url(../img/icons/checkmark-light.svg) 0 0 / 100% no-repeat;
   --pricing-border-bottom: #BDBDBD;
   --button-gradient: #4D58FF;
+  --button-hover-effect: none;
+  --light-hover-color-demo-btn: #4D58FF;
 }
 
 body {
@@ -371,7 +374,7 @@ body {
           transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
-  background: radial-gradient(var(--button-gradient), transparent, transparent);
+  background: var(--button-hover-effect);
   -webkit-transition: 0.5s, top 0s, left 0s;
   transition: 0.5s, top 0s, left 0s;
   opacity: 0;
@@ -686,6 +689,11 @@ body {
   .demo-button, .talk-button {
     width: 100%;
   }
+}
+
+[data-theme=light] .talk-button::after,
+[data-theme=light] .demo-button::after {
+  background-color: transparent;
 }
 
 @media (min-width: 78.375em) {
@@ -2431,6 +2439,17 @@ body {
   .menu__item:hover .menu__link, .footer__link:hover, .menu__link--icon:hover::after {
     color: var(--hover-color);
   }
+  [data-theme=light] .demo-button:hover {
+    background-color: #4D58FF;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+  }
+  [data-theme=light] .talk-button:hover {
+    background-color: #404040;
+    color: #fff;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+  }
   .demo-button:hover, .talk-button:hover, .blog__button:hover, .start-button:hover {
     text-shadow: 0 0 15px #fff, 0 0 40px #fff;
   }
@@ -2503,7 +2522,7 @@ body {
     content: "";
     height: 0.125rem;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--main-text-color);
   }
   .open-menu .nav,
   .open-menu .nav::before {

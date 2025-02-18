@@ -49,6 +49,7 @@
     --pricing-checkmark: url(../img/icons/checkmark.svg) 0 0 / 100% no-repeat;
     --pricing-border-bottom: #242424;
     --button-gradient: #fff;
+    --button-hover-effect: radial-gradient(var(--button-gradient), transparent, transparent);
 }
 
 [data-theme="light"] {
@@ -85,6 +86,8 @@
     --pricing-checkmark: url(../img/icons/checkmark-light.svg) 0 0 / 100% no-repeat;
     --pricing-border-bottom: #BDBDBD;
     --button-gradient: #4D58FF;
+    --button-hover-effect: none;
+    --light-hover-color-demo-btn: #4D58FF;
 }
 
 
@@ -254,7 +257,7 @@ body {
         transform: translate(-50%, -50%);
         width: 200px;
         height: 200px;
-        background: radial-gradient(var(--button-gradient), transparent, transparent);
+        background: var(--button-hover-effect);
         transition: 0.5s, top 0s, left 0s;
         opacity: 0;
     }
@@ -423,6 +426,10 @@ body {
     @media (max-width: 25rem) {
         width: 100%;
     }
+}
+[data-theme="light"] .talk-button::after,
+[data-theme="light"] .demo-button::after {
+    background-color: transparent;
 }
 
 .benefits, .product, .buttons-section, .partners, .testimonials, .blog, .answers {
@@ -1551,9 +1558,19 @@ body {
         @include adaptiveValue("font-size", 16, 12);
     }
 }
+
 @media (any-hover:hover) {
     .menu__item:hover .menu__link, .footer__link:hover, .menu__link--icon:hover::after {
         color: var(--hover-color);
+    }
+    [data-theme="light"] .demo-button:hover {
+        background-color: #4D58FF;
+        transition: background-color 0.3s ease;
+    }
+    [data-theme="light"] .talk-button:hover {
+        background-color: #404040;
+        color: #fff;
+        transition: background-color 0.3s ease;
     }
     .demo-button:hover, .talk-button:hover, .blog__button:hover, .start-button:hover {
         text-shadow: 0 0 15px #fff, 0 0 40px #fff;
@@ -1615,7 +1632,7 @@ body {
 		content: "";
 		height: .125rem;
 		width: 100%;
-		background-color: #fff;
+		background-color: var(--main-text-color);
 	}
     .open-menu .nav,
 	.open-menu .nav::before {

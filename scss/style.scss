@@ -429,12 +429,16 @@ body {
     text-align: center; 
     cursor: pointer;
 
+    transition: all 0.5s;
+
     @media (max-width: 25rem) {
         width: 100%;
     }
 }
 [data-theme="light"] .talk-button::after,
-[data-theme="light"] .demo-button::after {
+[data-theme="light"] .demo-button::after,
+[data-theme="light"] .blog__button::after,
+[data-theme="light"] .start-button::after{
     background-color: transparent;
 }
 
@@ -954,7 +958,7 @@ body {
         content: "";
         position: absolute;
         inset: 2px;
-        background-color: var(--demo-button-bg);
+        background-color: #4D58FF;
         border-radius: 48px;
     }
 
@@ -966,7 +970,7 @@ body {
         transform: translate(-50%, -50%);
         width: 200px;
         height: 200px;
-        background: radial-gradient(var(--button-gradient), transparent, transparent);
+        background: var(--button-hover-effect);
         transition: 0.5s, top 0s, left 0s;
         opacity: 0;
     }
@@ -982,7 +986,7 @@ body {
             content: "";
             position: absolute;
             inset: 2px;
-            background-color: var(--talk-button-bg);
+            background-color: #404040;
             border-radius: 48px;
         }
     }
@@ -1294,6 +1298,7 @@ body {
         font-weight: 600;
         line-height: 1.5; /* 1.5rem */
         letter-spacing: -0.32px;
+        transition: all 0.3s ease;
 
         &::after {
             content: "";
@@ -1311,7 +1316,7 @@ body {
             transform: translate(-50%, -50%);
             width: 200px;
             height: 200px;
-            background: radial-gradient(var(--button-gradient), transparent, transparent);
+            background: var(--button-hover-effect);
             transition: 0.5s, top 0s, left 0s;
             opacity: 0;
         }
@@ -1569,17 +1574,28 @@ body {
     .menu__item:hover .menu__link, .footer__link:hover, .menu__link--icon:hover::after {
         color: var(--hover-color);
     }
-    [data-theme="light"] .demo-button:hover {
+    [data-theme="light"] .talk-button:hover, 
+    .blog__button:hover, 
+    [data-theme="light"] .start-button:hover {
+        background-color: #404040;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+    [data-theme="light"] .demo-button:hover, 
+    [data-theme="light"] .start-button--color:hover{
         background-color: #4D58FF;
         transition: background-color 0.3s ease;
     }
-    [data-theme="light"] .talk-button:hover {
+    [data-theme="light"] .demo-button--color:hover{
         background-color: #404040;
         color: #fff;
         transition: background-color 0.3s ease;
     }
     .demo-button:hover, .talk-button:hover, .blog__button:hover, .start-button:hover {
         text-shadow: 0 0 15px #fff, 0 0 40px #fff;
+    }
+    [data-theme="light"] .demo-button:hover, [data-theme="light"] .talk-button:hover, [data-theme="light"] .blog__button:hover, [data-theme="light"] .start-button:hover {
+        text-shadow: none;
     }
 
     .demo-button:hover::before, .talk-button:hover::before, .blog__button:hover::before, .start-button:hover::before {

@@ -283,15 +283,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Хедер з прозорого в непрозорий
-window.addEventListener("scroll", function () {
-   let header = document.querySelector(".header");
+// window.addEventListener("scroll", function () {
+//    let header = document.querySelector(".header");
 
-   if (window.scrollY > 1) {
-      header.classList.add("scrolled");
-   } else {
-      header.classList.remove("scrolled");
-   }
-});
+//    if (window.scrollY > 1) {
+//       header.classList.add("scrolled");
+//    } else {
+//       header.classList.remove("scrolled");
+//    }
+// });
 
 // Button 
 let btns = document.querySelectorAll(".talk-button, .demo-button, .blog__button, .start-button");

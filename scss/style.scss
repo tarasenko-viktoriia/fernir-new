@@ -21,7 +21,7 @@
     --demo-button-bg: #4D58FF;
     --talk-button-bg: #404040;
     --button-border: none;
-    --header-bg: #0F0F0F;
+    --header-bg: rgba(15, 15, 15, 0.05);
     --icon-filter: invert(0);
     --hero-button-bg: #161616;
     --hero-img-bg: linear-gradient(0deg, #0F0F0F 0%, rgba(8, 8, 8, 0.52) 27.01%, rgba(0, 0, 0, 0.00) 100%);
@@ -59,7 +59,7 @@
     --demo-button-bg: #1D1C20;
     --talk-button-bg: #fff;
     --button-border: .0625rem solid #1D1C20;
-    --header-bg: #fff;
+    --header-bg: rgba(246, 246, 246, 0.05);
     --icon-filter: invert(1);
     --hero-button-bg: transparent;
     --hero-img-bg: none;
@@ -116,9 +116,9 @@ body {
     padding-inline: 15px;
 }
 
-.header.scrolled {
-    background-color: var(--header-bg);
-}
+// .header.scrolled {
+//     background-color: var(--header-bg);
+// }
 .header {
     position: sticky;
     top: 0;
@@ -127,6 +127,17 @@ body {
     max-height: 115px;
     border-bottom: .0625rem rgba(217, 217, 217, 0.16) solid;
     transition: background 0.3s ease-in-out, padding 0.3s ease-in-out;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--header-bg);
+        backdrop-filter: blur(50px);
+        z-index: -1; 
+    }
 
     &__block {
         display: flex;
@@ -161,11 +172,16 @@ body {
     inset-inline-start: 0;
     inset-block-start: 100%;
     inline-size: 150px;
-    padding: 15px;
+    padding: 55px 15px 15px;
     transition: all 0.3s ease;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    background-color: var(--header-bg);
+    backdrop-filter: blur(50px);
+    z-index: -2;
+
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
 
     &__item:not(:last-child) {
         margin-block-end: 10px;

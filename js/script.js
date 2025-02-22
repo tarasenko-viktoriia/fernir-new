@@ -64,7 +64,6 @@ const integration01 = document.getElementById('integration-img01');
 const integration02 = document.getElementById('integration-img02');
 const integration03 = document.getElementById('integration-img03');
 const integration04 = document.getElementById('integration-img04');
-const integration05 = document.getElementById('integration-img05');
 
 const testimonials01 = document.getElementById('testimonials-img01');
 const testimonials02 = document.getElementById('testimonials-img02');
@@ -149,11 +148,10 @@ function updateIcon(theme) {
    const integration03ImgSrc = theme === 'light' ? 'img/integration-img03-light.png' : 'img/integration-img03.png';
    integration03.setAttribute('src', integration03ImgSrc);
 
-   const integration04ImgSrc = theme === 'light' ? 'img/integration-img04-1-light.png' : 'img/integration-img04-1.png';
+   const integration04ImgSrc = theme === 'light' ? 'img/integration-img04-light.png' : 'img/integration-img04.png';
    integration04.setAttribute('src', integration04ImgSrc);
 
-   const integration05ImgSrc = theme === 'light' ? 'img/integration-img04-2-light.png' : 'img/integration-img04-2.png';
-   integration05.setAttribute('src', integration05ImgSrc);
+
 
    const testimonials01ImgSrc = theme === 'light' ? 'img/john_D-light.png' : 'img/john_D.png';
    testimonials01.setAttribute('src', testimonials01ImgSrc);

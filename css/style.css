@@ -2573,6 +2573,15 @@ body {
     opacity: 1;
     pointer-events: auto;
   }
+  .menu__item:hover::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+  }
   .prev-btn:hover svg path, .next-btn:hover svg path {
     stroke: var(--btn-hover-stroke);
   }

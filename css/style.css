@@ -2092,6 +2092,11 @@ body {
   transition: background-color 0.3s ease;
   stroke: var(--btn-stroke);
 }
+@media (max-width: 989px) {
+  .prev-btn, .next-btn {
+    display: none;
+  }
+}
 
 .prev-btn svg path, .next-btn svg path {
   -webkit-transition: stroke 0.3s ease;
@@ -2590,7 +2595,7 @@ body {
     border: none;
   }
 }
-@media (max-width: 990px) {
+@media (max-width: 989px) {
   .header__buttons > .demo-button,
   .header__buttons > .talk-button {
     display: none;
@@ -2782,4 +2787,26 @@ body {
 
 .testimonials .swiper {
   overflow: visible;
+}
+
+.slider-controls__bullets .swiper-pagination-bullet {
+  background-color: var(--main-text-color);
+}
+
+.slider-controls__bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--btn-stroke);
+}
+
+.slider-controls__bullets {
+  display: none;
+}
+@media (max-width: 989px) {
+  .slider-controls__bullets {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }

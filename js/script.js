@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
    const buttonsContainer = document.querySelector(".header__buttons");
 
    const moveButtonsToMenu = () => {
-      if (window.innerWidth <= 990) {
+      if (window.innerWidth <= 989) {
          if (!menu.contains(demoButton)) {
             menu.appendChild(demoButton);
          }
@@ -259,6 +259,10 @@ document.addEventListener("DOMContentLoaded", function () {
          nextEl: ".next-btn",
          prevEl: ".prev-btn",
       },
+      pagination: {
+			el: '.slider-controls__bullets',
+			clickable: true,
+		},
       breakpoints: {
          320: { 
             slidesPerView: 1,

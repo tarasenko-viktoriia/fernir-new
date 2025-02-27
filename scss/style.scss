@@ -1262,8 +1262,8 @@ body {
         border-radius: 20px;
         background: var(--cards-bg);
         flex-grow: 0;
-        flex-shrink: 0;
-        @include adaptiveValue("flex-basis", 392, 292);
+        flex-shrink: 1;
+        max-width: 392px;
         padding: 84px 32px;
         align-items: center;
 

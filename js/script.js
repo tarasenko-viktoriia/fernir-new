@@ -253,22 +253,20 @@ const copy = document.querySelector(".logos-slide").cloneNode(true);
 
 document.addEventListener("DOMContentLoaded", function () {
    new Swiper(".testimonials__cards", {
-      loop: true,
+      loop: false,
       spaceBetween: 24, 
       navigation: {
          nextEl: ".next-btn",
          prevEl: ".prev-btn",
       },
-      // pagination: {
-      //    el: ".swiper-pagination",
-      //    clickable: true,
-      // },
       breakpoints: {
          320: { 
             slidesPerView: 1,
+            spaceBetween: 12,
          },
          768: { 
             slidesPerView: 2,
+            spaceBetween: 18,
          },
          1024: { 
             slidesPerView: 3,

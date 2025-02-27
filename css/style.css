@@ -296,11 +296,11 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 6px;
+  cursor: pointer;
+  position: relative;
 }
-
 .menu__link--icon::after {
   content: "";
-  color: var(--accordion-title);
   width: 0.5625rem;
   height: 0.5625rem;
   display: inline-block;
@@ -309,10 +309,10 @@ body {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
-  -webkit-transition: -webkit-transform 0.4s ease-in-out;
-  transition: -webkit-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  -webkit-transition: color 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, color 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
 }
 
 .header__buttons {
@@ -2530,7 +2530,10 @@ body {
 }
 
 @media (any-hover: hover) {
-  .menu__item:hover .menu__link, .footer__link:hover, .menu__link--icon:hover::after {
+  .menu__item:hover .menu__link,
+  .menu__link--icon:hover,
+  .footer__link:hover,
+  .sub-menu__link:hover {
     color: var(--hover-color);
   }
   [data-theme=light] .talk-button:hover,
@@ -2572,6 +2575,14 @@ body {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
+  }
+  .menu__item:hover .menu__link--icon::after {
+    -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+            transform: rotate(225deg);
+  }
+  .menu__link--icon:hover::after {
+    color: var(--hover-color);
   }
   .menu__item:hover::after {
     content: "";

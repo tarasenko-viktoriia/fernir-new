@@ -718,14 +718,22 @@ body {
         row-gap: 30px;
         column-gap: 24px;
 
-        @media (max-width: 958px) {
-            grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 920px) {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 10px; 
+
+            & > .integration__card {
+                flex: 0 0 auto; 
+                width: 100%;
+                max-width: 320px;
+                scroll-snap-align: start;
+            }
         }
 
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr; 
-
-        }
+        
 
         & > *:nth-child(1),
         & > *:nth-child(3) {
@@ -841,6 +849,13 @@ body {
         align-items: flex-end;
         gap: 1.875rem;
     }
+}
+.integration__block {
+    scrollbar-width: none; /* Для Firefox */
+}
+
+.integration__block::-webkit-scrollbar {
+    display: none; /* Ховає скролбар у Chrome, Safari */
 }
 #integration-img01 {
     aspect-ratio: 244 / 216;

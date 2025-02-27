@@ -1,0 +1,24 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--main-text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.wrapper{
+    min-height: 100%;
+    overflow: clip;
+
+    display: flex;
+    flex-direction: column;
+
+    main {
+        flex-grow: 1;
+    }
+}
+
+[class*="__container"] {
+    max-width: 1254px;
+    margin: 0 auto;
+    padding-inline: 15px;
+}

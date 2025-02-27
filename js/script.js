@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
    const buttonsContainer = document.querySelector(".header__buttons");
 
    const moveButtonsToMenu = () => {
-      if (window.innerWidth <= 700) {
+      if (window.innerWidth <= 990) {
          if (!menu.contains(demoButton)) {
             menu.appendChild(demoButton);
          }

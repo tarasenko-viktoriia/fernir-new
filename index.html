@@ -3,7 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 	<title>Fernir</title>
 	<link rel="icon" type="image/svg" href="img/icons/favicon.ico">
 	<base href="#">
@@ -405,82 +407,90 @@
 							<h2>What are people saying</h2>
 						</div>
 					</div>
-					<div class="testimonials__cards cards-testimonials">
-						<div class="cards-testimonials__item">
-							<div class="cards-testimonials__img">
-								<img id="testimonials-img01" src="img/john_D.png" alt="John D.">
+					<div class="testimonials__cards cards-testimonials swiper">
+						<div class="swiper-wrapper">
+							<div class="cards-testimonials__item swiper-slide">
+								<div class="cards-testimonials__img">
+									<img id="testimonials-img01" src="img/john_D.png" alt="John D.">
+								</div>
+								<div>
+									<img src="img/stars.png" alt="five stars">
+								</div>
+								<blockquote>
+									"I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"
+								</blockquote>
+								<div class="cards-testimonials__author">
+									<h5>John D.</h5>
+									<p>Company CEO</p>
+								</div>
 							</div>
-							<div>
-								<img src="img/stars.png" alt="five stars">
+							<div class="cards-testimonials__item swiper-slide">
+								<div class="cards-testimonials__img">
+									<img id="testimonials-img02" src="img/ava_A.png" alt="Ava A.">
+								</div>
+								<div>
+									<img src="img/stars.png" alt="five stars">
+								</div>
+								<blockquote>
+									"I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"
+								</blockquote>
+								<div class="cards-testimonials__author">
+									<h5>Ava A.</h5>
+									<p>Marketing Manager</p>
+								</div>
 							</div>
-							<blockquote>
-								"I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"
-							</blockquote>
-							<div class="cards-testimonials__author">
-								<h5>John D.</h5>
-								<p>Company CEO</p>
+							<div class="cards-testimonials__item swiper-slide">
+								<div class="cards-testimonials__img">
+									<img id="testimonials-img03" src="img/james_D.png" alt="James D.">
+								</div>
+								<div>
+									<img src="img/stars.png" alt="five stars">
+								</div>
+								<blockquote>
+									"I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"
+								</blockquote>
+								<div class="cards-testimonials__author">
+									<h5>James D.</h5>
+									<p>Small Business Owner</p>
+								</div>
 							</div>
-						</div>
-						<div class="cards-testimonials__item">
-							<div class="cards-testimonials__img">
-								<img id="testimonials-img02" src="img/ava_A.png" alt="Ava A.">
-							</div>
-							<div>
-								<img src="img/stars.png" alt="five stars">
-							</div>
-							<blockquote>
-								"I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"
-							</blockquote>
-							<div class="cards-testimonials__author">
-								<h5>Ava A.</h5>
-								<p>Marketing Manager</p>
-							</div>
-						</div>
-						<div class="cards-testimonials__item">
-							<div class="cards-testimonials__img">
-								<img id="testimonials-img03" src="img/james_D.png" alt="James D.">
-							</div>
-							<div>
-								<img src="img/stars.png" alt="five stars">
-							</div>
-							<blockquote>
-								"I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"
-							</blockquote>
-							<div class="cards-testimonials__author">
-								<h5>James D.</h5>
-								<p>Small Business Owner</p>
-							</div>
-						</div>
-						<div class="cards-testimonials__item">
-							<div class="cards-testimonials__img">
-								<img id="testimonials-img04" src="img/Olivia_I.png" alt="Olivia I.">
-							</div>
-							<div>
-								<img src="img/stars.png" alt="five stars">
-							</div>
-							<blockquote>
-								"I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"
-							</blockquote>
-							<div class="cards-testimonials__author">
-								<h5>Olivia I.</h5>
-								<p>Software Engineer</p>
+							<div class="cards-testimonials__item swiper-slide">
+								<div class="cards-testimonials__img">
+									<img id="testimonials-img04" src="img/Olivia_I.png" alt="Olivia I.">
+								</div>
+								<div>
+									<img src="img/stars.png" alt="five stars">
+								</div>
+								<blockquote>
+									"I've been consistently impressed with the quality of service provided by this website. They have exceeded my expectations and delivered exceptional results. Highly recommended!"
+								</blockquote>
+								<div class="cards-testimonials__author">
+									<h5>Olivia I.</h5>
+									<p>Software Engineer</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="testimonials__buttons">
-						<button class="prev-btn">
+					<div class="testimonials__buttons slider-controls">
+						<button class="prev-btn slider-controls__left">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 								<path d="M19 12H5"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 								<path d="M12 19L5 12L12 5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</button>
-						<button class="next-btn">
+						<button class="next-btn slider-controls__right">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 								<path d="M5 12H19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 								<path d="M12 5L19 12L12 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</button>
 					</div>
+						<!-- <div class="swiper-pagination"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+
+						<div class="swiper-scrollbar"></div>
+					</div> -->
 				</div>
 			</section>
 			<section class="blog">
@@ -691,6 +701,7 @@
 			</div>
 		</footer>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>

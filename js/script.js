@@ -218,39 +218,64 @@ const copy = document.querySelector(".logos-slide").cloneNode(true);
    document.querySelector(".logos").appendChild(copy);
 
 //Слайдер
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-const testimonials = document.querySelector('.cards-testimonials');
+// const prevBtn = document.querySelector('.prev-btn');
+// const nextBtn = document.querySelector('.next-btn');
+// const testimonials = document.querySelector('.cards-testimonials');
 
-const ITEM_WIDTH = 150; 
-const TOTAL_WIDTH = testimonials.scrollWidth; 
-const VISIBLE_WIDTH = testimonials.clientWidth; 
-const MAX_OFFSET = TOTAL_WIDTH - VISIBLE_WIDTH; 
+// const ITEM_WIDTH = 150; 
+// const TOTAL_WIDTH = testimonials.scrollWidth; 
+// const VISIBLE_WIDTH = testimonials.clientWidth; 
+// const MAX_OFFSET = TOTAL_WIDTH - VISIBLE_WIDTH; 
 
-let currentOffset = 0;
+// let currentOffset = 0;
 
-function updateCarousel() {
-   testimonials.style.transform = `translateX(-${currentOffset}px)`;
-}
+// function updateCarousel() {
+//    testimonials.style.transform = `translateX(-${currentOffset}px)`;
+// }
 
-nextBtn.addEventListener('click', () => {
-   if (currentOffset + ITEM_WIDTH > MAX_OFFSET) {
-      currentOffset = 0;
-   } else {
-      currentOffset += ITEM_WIDTH; 
-   }
-   updateCarousel();
+// nextBtn.addEventListener('click', () => {
+//    if (currentOffset + ITEM_WIDTH > MAX_OFFSET) {
+//       currentOffset = 0;
+//    } else {
+//       currentOffset += ITEM_WIDTH; 
+//    }
+//    updateCarousel();
+// });
+
+// prevBtn.addEventListener('click', () => {
+//    if (currentOffset - ITEM_WIDTH < 0) {
+//       currentOffset = MAX_OFFSET;
+//    } else {
+//       currentOffset -= ITEM_WIDTH; 
+//    }
+//    updateCarousel();
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+   new Swiper(".testimonials__cards", {
+      loop: true,
+      spaceBetween: 24, 
+      navigation: {
+         nextEl: ".next-btn",
+         prevEl: ".prev-btn",
+      },
+      // pagination: {
+      //    el: ".swiper-pagination",
+      //    clickable: true,
+      // },
+      breakpoints: {
+         320: { 
+            slidesPerView: 1,
+         },
+         768: { 
+            slidesPerView: 2,
+         },
+         1024: { 
+            slidesPerView: 3,
+         },
+      },
+   });
 });
-
-prevBtn.addEventListener('click', () => {
-   if (currentOffset - ITEM_WIDTH < 0) {
-      currentOffset = MAX_OFFSET;
-   } else {
-      currentOffset -= ITEM_WIDTH; 
-   }
-   updateCarousel();
-});
-
 
 document.addEventListener("DOMContentLoaded", function () {
    const headers = document.querySelectorAll(".accordion__header");

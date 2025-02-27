@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans:regular,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=DM+Sans:regular,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:regular,700&display=swap");
 @font-face {
   font-family: "Satoshi";
   src: url("../fonts/Satoshi-Bold.woff2") format("woff2");
@@ -2789,4 +2790,13 @@ body {
         -ms-transform: rotate(-135deg);
             transform: rotate(-135deg);
   }
+}
+.testimonials__cards .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.testimonials .swiper {
+  overflow: visible;
 }

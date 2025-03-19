@@ -441,7 +441,7 @@
 
         & > *:nth-child(1),
         & > *:nth-child(3) {
-            padding: 44px 22px;
+            padding: 44px 21px;
             text-align: center;
 
             p{
@@ -477,7 +477,7 @@
             grid-column: 3 / span 2;
 
             p{
-                font-size: 18px;
+                @include adaptiveValue("font-size", 18, 14);
                 letter-spacing: -0.36px;
                 margin-bottom: 34px;
                 max-width: 474px;
@@ -506,9 +506,14 @@
         border-radius: 24.5232px;
         border: var(--cards-border);
         background-color: var(--cards-bg);
+        max-height: toRem(406);
+
+        @media (max-width: 768px) {
+            justify-content: space-between;
+        }
 
         h3{
-            font-size: 32px;
+            @include adaptiveValue("font-size", 32, 16);
             font-weight: 600;
             line-height: 1.2; /* 2.4rem */
             letter-spacing: -0.96px;
@@ -516,14 +521,14 @@
             max-width: 338px;
         }
         h4{
-            font-size: 24px;
+            @include adaptiveValue("font-size", 24, 16);
             font-weight: 600;
             line-height: 1.5; /* 2.25rem */
             letter-spacing: -0.72px;
             margin-bottom: 24px;
         }
         h5 {
-            font-size: 20px;
+            @include adaptiveValue("font-size", 20, 16);
             font-weight: 600;
             line-height: 1.5; /* 1.875rem */
             letter-spacing: -0.4px;
@@ -531,6 +536,7 @@
             margin: 0 auto;
         }
         p{
+            @include adaptiveValue("font-size", 16, 14);
             color: #9B9CA1;
             line-height: 1.5; /* 1.3125rem */
         }
@@ -547,10 +553,11 @@
         letter-spacing: -0.32px;
         margin-bottom: 8px;
     }
-    &__img {
-        display: flex;
-        align-items: flex-end;
-        gap: 1.875rem;
+    .demo-button {
+        flex: 0;
+        @media (max-width: 850px) {
+            width: 100%;
+        }
     }
 }
 #integration-img01 {
@@ -563,10 +570,10 @@
     aspect-ratio: 540 / 225;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 #integration-img03 {
-    aspect-ratio: 216 / 216;
+    aspect-ratio: 1 / 1;
     width: 100%;
     height: 100%;
     object-fit: contain;

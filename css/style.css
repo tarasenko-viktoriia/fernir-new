@@ -1510,7 +1510,7 @@ textarea {
   }
 }
 .integration__block > *:nth-child(1), .integration__block > *:nth-child(3) {
-  padding: 44px 22px;
+  padding: 44px 21px;
   text-align: center;
 }
 .integration__block > *:nth-child(1) p, .integration__block > *:nth-child(3) p {
@@ -1547,10 +1547,24 @@ textarea {
   grid-column: 3/span 2;
 }
 .integration__block > *:nth-child(5) p {
-  font-size: 18px;
   letter-spacing: -0.36px;
   margin-bottom: 34px;
   max-width: 474px;
+}
+@media (min-width: 78.375em) {
+  .integration__block > *:nth-child(5) p {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .integration__block > *:nth-child(5) p {
+    font-size: clamp( 0.875rem , 0.7893468951rem  +  0.4282655246vw , 1.125rem );
+  }
+}
+@media (max-width: 20em) {
+  .integration__block > *:nth-child(5) p {
+    font-size: 0.875rem;
+  }
 }
 @media (max-width: 850px) {
   .integration__block > *:nth-child(2), .integration__block > *:nth-child(4), .integration__block > *:nth-child(5) {
@@ -1574,33 +1588,98 @@ textarea {
   border-radius: 24.5232px;
   border: var(--cards-border);
   background-color: var(--cards-bg);
+  max-height: 25.375rem;
+}
+@media (max-width: 768px) {
+  .integration__card {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 .integration__card h3 {
-  font-size: 32px;
   font-weight: 600;
   line-height: 1.2; /* 2.4rem */
   letter-spacing: -0.96px;
   margin-bottom: 44px;
   max-width: 338px;
 }
+@media (min-width: 78.375em) {
+  .integration__card h3 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .integration__card h3 {
+    font-size: clamp( 1rem , 0.6573875803rem  +  1.7130620985vw , 2rem );
+  }
+}
+@media (max-width: 20em) {
+  .integration__card h3 {
+    font-size: 1rem;
+  }
+}
 .integration__card h4 {
-  font-size: 24px;
   font-weight: 600;
   line-height: 1.5; /* 2.25rem */
   letter-spacing: -0.72px;
   margin-bottom: 24px;
 }
+@media (min-width: 78.375em) {
+  .integration__card h4 {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .integration__card h4 {
+    font-size: clamp( 1rem , 0.8286937901rem  +  0.8565310493vw , 1.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .integration__card h4 {
+    font-size: 1rem;
+  }
+}
 .integration__card h5 {
-  font-size: 20px;
   font-weight: 600;
   line-height: 1.5; /* 1.875rem */
   letter-spacing: -0.4px;
   max-width: 200px;
   margin: 0 auto;
 }
+@media (min-width: 78.375em) {
+  .integration__card h5 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .integration__card h5 {
+    font-size: clamp( 1rem , 0.9143468951rem  +  0.4282655246vw , 1.25rem );
+  }
+}
+@media (max-width: 20em) {
+  .integration__card h5 {
+    font-size: 1rem;
+  }
+}
 .integration__card p {
   color: #9B9CA1;
   line-height: 1.5; /* 1.3125rem */
+}
+@media (min-width: 78.375em) {
+  .integration__card p {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 78.375em) {
+  .integration__card p {
+    font-size: clamp( 0.875rem , 0.8321734475rem  +  0.2141327623vw , 1rem );
+  }
+}
+@media (max-width: 20em) {
+  .integration__card p {
+    font-size: 0.875rem;
+  }
 }
 .integration__card > .demo-button {
   display: -webkit-box;
@@ -1618,14 +1697,15 @@ textarea {
   letter-spacing: -0.32px;
   margin-bottom: 8px;
 }
-.integration__img {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  gap: 1.875rem;
+.integration .demo-button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+}
+@media (max-width: 850px) {
+  .integration .demo-button {
+    width: 100%;
+  }
 }
 
 #integration-img01 {
@@ -1640,12 +1720,12 @@ textarea {
   aspect-ratio: 540/225;
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #integration-img03 {
-  aspect-ratio: 216/216;
+  aspect-ratio: 1/1;
   width: 100%;
   height: 100%;
   -o-object-fit: contain;

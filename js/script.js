@@ -6,7 +6,23 @@ document.addEventListener("click", function (e) {
       e.preventDefault();
    }
 })
+const menuLinks = document.querySelectorAll('.menu__link--icon');
 
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Знайдемо підменю для поточного елемента
+            const subMenu = this.nextElementSibling;
+
+            // Перевіримо, чи воно відкрите
+            if (subMenu.classList.contains('sub-menu--open')) {
+                // Закриваємо підменю
+                subMenu.classList.remove('sub-menu--open');
+            } else {
+                // Відкриваємо підменю
+                subMenu.classList.add('sub-menu--open');
+            }
+        });
+    });
 document.addEventListener("DOMContentLoaded", () => {
    const demoButton = document.querySelector(".demo-button");
    const talkButton = document.querySelector(".talk-button");

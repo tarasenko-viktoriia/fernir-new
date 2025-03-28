@@ -8,21 +8,19 @@ document.addEventListener("click", function (e) {
 })
 const menuLinks = document.querySelectorAll('.menu__link--icon');
 
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            // Знайдемо підменю для поточного елемента
-            const subMenu = this.nextElementSibling;
+menuLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        const subMenu = this.nextElementSibling;
 
-            // Перевіримо, чи воно відкрите
-            if (subMenu.classList.contains('sub-menu--open')) {
-                // Закриваємо підменю
-                subMenu.classList.remove('sub-menu--open');
-            } else {
-                // Відкриваємо підменю
-                subMenu.classList.add('sub-menu--open');
-            }
-        });
+        if (subMenu.classList.contains('sub-menu--open')) {
+            subMenu.style.maxHeight = null; // Закриття
+            subMenu.classList.remove('sub-menu--open');
+        } else {
+            subMenu.style.maxHeight = subMenu.scrollHeight + "px"; // Відкриття
+            subMenu.classList.add('sub-menu--open');
+        }
     });
+});
 document.addEventListener("DOMContentLoaded", () => {
    const demoButton = document.querySelector(".demo-button");
    const talkButton = document.querySelector(".talk-button");
@@ -234,38 +232,6 @@ const copy = document.querySelector(".logos-slide").cloneNode(true);
    document.querySelector(".logos").appendChild(copy);
 
 //Слайдер
-// const prevBtn = document.querySelector('.prev-btn');
-// const nextBtn = document.querySelector('.next-btn');
-// const testimonials = document.querySelector('.cards-testimonials');
-
-// const ITEM_WIDTH = 150; 
-// const TOTAL_WIDTH = testimonials.scrollWidth; 
-// const VISIBLE_WIDTH = testimonials.clientWidth; 
-// const MAX_OFFSET = TOTAL_WIDTH - VISIBLE_WIDTH; 
-
-// let currentOffset = 0;
-
-// function updateCarousel() {
-//    testimonials.style.transform = `translateX(-${currentOffset}px)`;
-// }
-
-// nextBtn.addEventListener('click', () => {
-//    if (currentOffset + ITEM_WIDTH > MAX_OFFSET) {
-//       currentOffset = 0;
-//    } else {
-//       currentOffset += ITEM_WIDTH; 
-//    }
-//    updateCarousel();
-// });
-
-// prevBtn.addEventListener('click', () => {
-//    if (currentOffset - ITEM_WIDTH < 0) {
-//       currentOffset = MAX_OFFSET;
-//    } else {
-//       currentOffset -= ITEM_WIDTH; 
-//    }
-//    updateCarousel();
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
    new Swiper(".testimonials__cards", {
@@ -323,17 +289,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 });
 
-// Хедер з прозорого в непрозорий
-// window.addEventListener("scroll", function () {
-//    let header = document.querySelector(".header");
-
-//    if (window.scrollY > 1) {
-//       header.classList.add("scrolled");
-//    } else {
-//       header.classList.remove("scrolled");
-//    }
-// });
-
 // Button 
 let btns = document.querySelectorAll(".talk-button, .demo-button, .blog__button, .start-button");
 
@@ -386,4 +341,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			document.querySelector(`[data-content="${tabName}"]`).classList.add("active");
 		});
 	});
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+   const dropdown = document.querySelector(".menu__item .menu__link--icon");
+
+   dropdown.addEventListener("click", function (event) {
+      event.preventDefault(); 
+      this.parentElement.classList.toggle("active"); 
+   });
 });

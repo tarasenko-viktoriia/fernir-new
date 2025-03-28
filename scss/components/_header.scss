@@ -74,6 +74,7 @@
             font-size: 1.125rem;
             font-weight: 600;
             flex: none;
+            min-width: toRem(290);
         }
     }
 
@@ -156,6 +157,11 @@
         align-items: center;
         padding-top: toRem(15);
         pointer-events: auto;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    
     }
     .sub-menu--open {
         opacity: 1;
@@ -163,4 +169,8 @@
         pointer-events: auto;
         position: relative;
     }
+}
+
+.menu__item.active .menu__link--icon::after {
+    transform: rotate(225deg);
 }

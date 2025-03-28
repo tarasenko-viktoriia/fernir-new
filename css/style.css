@@ -1538,6 +1538,7 @@ textarea {
      -moz-column-gap: 24px;
           column-gap: 24px;
   scrollbar-width: none;
+  overflow-y: hidden;
 }
 .integration__block::-webkit-scrollbar {
   display: none;
